@@ -2,23 +2,24 @@
 	import { scale } from 'svelte/transition';
 	import { elasticOut } from 'svelte/easing';
 	import { Moon, RefreshCcw, Sun } from 'lucide-svelte';
-	// import { ChartComponent as Chart, NumericDateRepresentation, TraceList } from 'libchartium';
+	import { ChartComponent as Chart, NumericDateRepresentation, TraceList } from 'libchartium';
+	import { browser } from '$app/environment';
 
-	let count = $state(0);
+	let count = 0;
 
-	// const traces = TraceList.fromColumns({
-	// 	x: {
-	// 		type: 'u64',
-	// 		data: BigUint64Array.from({ length: 10 }, (_, i) => BigInt(+new Date(`01-${i}-2024`))),
-	// 		unit: NumericDateRepresentation.EpochMilliseconds()
-	// 	},
-	// 	y: {
-	// 		type: 'f64',
-	// 		columns: [
-	// 			{ id: 'foo', data: Float64Array.from({ length: 10 }, (_, i) => Math.sin(i / Math.PI)) }
-	// 		]
-	// 	}
-	// });
+	const traces = TraceList.fromColumns({
+		x: {
+			type: 'f64',
+			data: Float64Array.from({ length: 10 }, (_, i) => +new Date(`01-${i + 1}-2024`)),
+			unit: NumericDateRepresentation.EpochMilliseconds()
+		},
+		y: {
+			type: 'f64',
+			columns: [
+				{ id: 'foo', data: Float64Array.from({ length: 10 }, (_, i) => Math.sin(i / Math.PI)) }
+			]
+		}
+	});
 </script>
 
 <main class="mx-auto mb-4 mt-20 max-w-[80rem] px-8">
@@ -68,10 +69,10 @@
 				duration-200 ease-in-out
 			"
 			tabindex="0"
-			onclick={() => (count += 1)}
+			on:click={() => (count += 1)}
 		>
 			{#if count > 0}
-				{@const reset = (e: Event) => {
+				{@const reset = (e) => {
 					count = 0;
 					e.stopPropagation();
 				}}
@@ -85,8 +86,8 @@
 					role="button"
 					tabindex="0"
 					aria-label="Resetovat číselník"
-					onclick={reset}
-					onkeypress={(e) => ['Enter', ' '].includes(e.key) && reset(e)}
+					on:click={reset}
+					on:keypress={(e) => ['Enter', ' '].includes(e.key) && reset(e)}
 					transition:scale={{
 						easing: elasticOut
 					}}
@@ -100,15 +101,17 @@
 
 	<h2 class="text-2xl">Zkušenosti</h2>
 	<div class="flex flex-row">
-		<div class="w-2/3 card m-2 p-4 bg-neutral">
+		<div class="w-1/2 card m-2 p-4 bg-neutral">
 			<h3 class="card-title">Chartium</h3>
 			<p>
 				V dlouhodobé spolupráci se společností Soumind vyvíjíme nástroj pro analýzu diskových polí,
 				který používá společnost DHL.
 			</p>
 		</div>
-		<div class="w-1/3">
-			<!-- <Chart {traces} /> -->
+		<div class="w-1/2">
+			{#if browser}
+				<Chart {traces} />
+			{/if}
 		</div>
 	</div>
 </main>
