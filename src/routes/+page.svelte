@@ -1,14 +1,51 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
-	import { elasticInOut, elasticOut } from 'svelte/easing';
-	import { RefreshCcw } from 'lucide-svelte';
+	import { elasticOut } from 'svelte/easing';
+	import { Moon, RefreshCcw, Sun } from 'lucide-svelte';
+	// import { ChartComponent as Chart, NumericDateRepresentation, TraceList } from 'libchartium';
 
 	let count = $state(0);
+
+	// const traces = TraceList.fromColumns({
+	// 	x: {
+	// 		type: 'u64',
+	// 		data: BigUint64Array.from({ length: 10 }, (_, i) => BigInt(+new Date(`01-${i}-2024`))),
+	// 		unit: NumericDateRepresentation.EpochMilliseconds()
+	// 	},
+	// 	y: {
+	// 		type: 'f64',
+	// 		columns: [
+	// 			{ id: 'foo', data: Float64Array.from({ length: 10 }, (_, i) => Math.sin(i / Math.PI)) }
+	// 		]
+	// 	}
+	// });
 </script>
 
-<main class="mx-auto mb-4 mt-20 max-w-[50rem] px-8">
-	<h1 class="text-8xl text-center mb-5">codektiv</h1>
-	<p class="text-justify">
+<main class="mx-auto mb-4 mt-20 max-w-[80rem] px-8">
+	<style lang="postcss">
+		h1 {
+			font-family: 'CMU', cursive, serif;
+			font-weight: normal;
+			font-style: italic;
+		}
+	</style>
+	<h1 class="flex flex-row justify-center mb-5">
+		<span class="text-8xl">codektiv</span>
+		<span class="inline-block h-full">
+			<label class="swap swap-rotate">
+				<input
+					tabindex="0"
+					aria-label="Přepnout světlý / tmavý režim"
+					type="checkbox"
+					class="theme-controller rounded-full"
+					value="light"
+				/>
+				<Sun class="swap-off fill-current" />
+				<Moon class="swap-on fill-current" />
+			</label>
+		</span>
+	</h1>
+	<p class="text-justify max-w-[40rem] mx-auto">
 		Jsme mladý kolektiv absolventů Matematicko-fyzikální fakulty Univerzity Karlovy s vášní pro
 		programování. Jako tým pracujeme již několik let a klademe důraz na kvalitní kód s extrémně
 		nízkou tolerancí pro technologický dluh. Umíme používat současné i bleeding-edge technologie,
@@ -17,8 +54,19 @@
 		se mu líbí. Stejně tak rádi poskytneme náš názor na různá řešení na základě našich předchozích
 		zkušeností. A&nbsp;hlavně: dá se s námi domluvit 😉.
 
+		<style lang="postcss">
+			button.indicator:hover:not(:has(.indicator-item:hover)) {
+				--tw-bg-opacity: 1;
+				background-color: rgb(17 24 39 / var(--tw-bg-opacity)) /* #111827 */;
+			}
+		</style>
 		<button
-			class="indicator block m-5 ml-auto cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold text-white transition duration-200 ease-in-out"
+			class="
+			    indicator block my-5 ml-auto cursor-pointer
+				rounded-md bg-gray-800 px-4 py-3 text-center
+				text-sm font-semibold text-white transition
+				duration-200 ease-in-out
+			"
 			tabindex="0"
 			onclick={() => (count += 1)}
 		>
@@ -28,9 +76,15 @@
 					e.stopPropagation();
 				}}
 				<span
-					class="indicator-item rounded-full bg-gray-700 p-2 rotate-12 transition duration-200 hover:bg-sky-700 hover:rotate-0"
+					class="
+					    indicator-item rounded-full bg-gray-700
+						p-2 rotate-12 transition duration-200
+						hover:bg-sky-700 focus:bg-sky-700
+						hover:rotate-0 focus:rotate-0
+					"
 					role="button"
 					tabindex="0"
+					aria-label="Resetovat číselník"
 					onclick={reset}
 					onkeypress={(e) => ['Enter', ' '].includes(e.key) && reset(e)}
 					transition:scale={{
@@ -45,17 +99,16 @@
 	</p>
 
 	<h2 class="text-2xl">Zkušenosti</h2>
+	<div class="flex flex-row">
+		<div class="w-2/3 card m-2 p-4 bg-neutral">
+			<h3 class="card-title">Chartium</h3>
+			<p>
+				V dlouhodobé spolupráci se společností Soumind vyvíjíme nástroj pro analýzu diskových polí,
+				který používá společnost DHL.
+			</p>
+		</div>
+		<div class="w-1/3">
+			<!-- <Chart {traces} /> -->
+		</div>
+	</div>
 </main>
-
-<style lang="postcss">
-	h1 {
-		font-family: 'CMU', cursive, serif;
-		font-weight: normal;
-		font-style: italic;
-	}
-
-	button.indicator:hover:not(:has(.indicator-item:hover)) {
-		--tw-bg-opacity: 1;
-		background-color: rgb(17 24 39 / var(--tw-bg-opacity)) /* #111827 */;
-	}
-</style>
