@@ -5,20 +5,18 @@
 	import { ChartComponent as Chart, NumericDateRepresentation, TraceList } from 'libchartium';
 	import { browser } from '$app/environment';
 
-	const eventHandler = (fn: (e: Event) => void) => fn;
-
 	let count = 0;
 
 	const traces = TraceList.fromColumns({
 		x: {
 			type: 'f64',
-			data: Float64Array.from({ length: 10 }, (_, i) => +new Date(`01-${i + 1}-2024`)),
+			data: Float64Array.from({ length: 20 }, (_, i) => +new Date(`01-${i + 1}-2024`)),
 			unit: NumericDateRepresentation.EpochMilliseconds()
 		},
 		y: {
 			type: 'f64',
 			columns: [
-				{ id: 'foo', data: Float64Array.from({ length: 10 }, (_, i) => Math.sin(i / Math.PI)) }
+				{ id: 'foo', data: Float64Array.from({ length: 20 }, (_, i) => Math.sin(i / Math.PI)) }
 			]
 		}
 	});
@@ -73,11 +71,7 @@
 			tabindex="0"
 			on:click={() => (count += 1)}
 		>
-			{#if count > 0}
-				{@const reset = eventHandler((e) => {
-					count = 0;
-					e.stopPropagation();
-				})}
+			{#if count > 0 && count !== 69}
 				<span
 					class="
 					    indicator-item rounded-full bg-gray-700
@@ -88,14 +82,17 @@
 					role="button"
 					tabindex="0"
 					aria-label="Resetovat číselník"
-					on:click={reset}
-					on:keypress={(e) => ['Enter', ' '].includes(e.key) && reset(e)}
-					transition:scale={{
-						easing: elasticOut
-					}}
+					on:click|stopPropagation={() => (count = 0)}
+					on:keypress|stopPropagation={(e) => ['Enter', ' '].includes(e.key) && (count = 0)}
+					transition:scale={{ easing: elasticOut }}
 				>
 					<RefreshCcw size={20} />
 				</span>
+			{:else if count === 69}
+				<span
+					class="indicator-item rounded-md bg-lime-700 px-1"
+					transition:scale={{ easing: elasticOut }}>Nice!</span
+				>
 			{/if}
 			Kliknuto {count} krát!
 		</button>
@@ -112,7 +109,7 @@
 		</div>
 		<div class="w-1/2">
 			{#if browser}
-				<Chart {traces} />
+				<Chart {traces} hideLegend={true} margins={{ top: { px: 10 } }} />
 			{/if}
 		</div>
 	</div>
