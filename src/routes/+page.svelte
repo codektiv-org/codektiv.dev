@@ -5,6 +5,8 @@
 	import { ChartComponent as Chart, NumericDateRepresentation, TraceList } from 'libchartium';
 	import { browser } from '$app/environment';
 
+	const eventHandler = (fn: (e: Event) => void) => fn;
+
 	let count = 0;
 
 	const traces = TraceList.fromColumns({
@@ -72,10 +74,10 @@
 			on:click={() => (count += 1)}
 		>
 			{#if count > 0}
-				{@const reset = (e) => {
+				{@const reset = eventHandler((e) => {
 					count = 0;
 					e.stopPropagation();
-				}}
+				})}
 				<span
 					class="
 					    indicator-item rounded-full bg-gray-700
