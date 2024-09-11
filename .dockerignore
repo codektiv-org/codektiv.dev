@@ -1,0 +1,9 @@
+.env
+.env.*
+.svelte-kit/
+.github/
+.vscode/
+
+build/
+cache/
+node_modules/
