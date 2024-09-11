@@ -73,7 +73,7 @@
 			<div slot="toolbar" />
 		</Chart>
 	</div>
-	<div class="absolute h-3/4 w-3/4 right-0 bottom-0 bg-gray-800 rounded-lg pr-8">
+	<div class="absolute h-3/4 w-3/4 right-0 bottom-0 bg-base-200 rounded-lg pr-8">
 		<Chart traces={foregroundTraces} {commonXRange$} commonXRuler$={sharedRuler$} hideLegend>
 			<div slot="toolbar" />
 		</Chart>

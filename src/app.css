@@ -4,12 +4,11 @@
 
 @font-face {
 	font-family: 'CMU';
-	src: url('cmunti.eot');
 	src:
-		url('fonts/cmunti.eot?#iefix') format('embedded-opentype'),
-		url('fonts/cmunti.woff') format('woff'),
-		url('fonts/cmunti.ttf') format('truetype'),
-		url('fonts/cmunti.svg#cmunti') format('svg');
+		url('./fonts/cmunti.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/cmunti.woff') format('woff'),
+		url('./fonts/cmunti.ttf') format('truetype'),
+		url('./fonts/cmunti.svg#cmunti') format('svg');
 	font-weight: normal;
 	font-style: italic;
 }
