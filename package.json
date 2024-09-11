@@ -35,7 +35,9 @@
 	"type": "module",
 	"packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
 	"dependencies": {
+		"@typek/signalhead": "npm:@jsr/typek__signalhead@^0.0.39",
 		"@typek/typek": "npm:@jsr/typek__typek@^0.6.5",
+		"dayjs": "^1.11.13",
 		"libchartium": "^0.32.6",
 		"lucide-svelte": "^0.439.0",
 		"vite-plugin-wasm": "^3.3.0"

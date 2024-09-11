@@ -4,6 +4,7 @@
 	import { Moon, RefreshCcw, Sun } from 'lucide-svelte';
 	import { ChartComponent as Chart, NumericDateRepresentation, TraceList } from 'libchartium';
 	import { browser } from '$app/environment';
+	import BiChart from '$lib/BiChart.svelte';
 
 	let count = 0;
 
@@ -17,6 +18,20 @@
 			type: 'f64',
 			columns: [
 				{ id: 'foo', data: Float64Array.from({ length: 20 }, (_, i) => Math.sin(i / Math.PI)) }
+			]
+		}
+	});
+
+	const otherTraces = TraceList.fromColumns({
+		x: {
+			type: 'f64',
+			data: Float64Array.from({ length: 20 }, (_, i) => +new Date(`01-${i + 1}-2024`)),
+			unit: NumericDateRepresentation.EpochMilliseconds()
+		},
+		y: {
+			type: 'f64',
+			columns: [
+				{ id: 'foo', data: Float64Array.from({ length: 20 }, (_, i) => -Math.sin(i / Math.PI)) }
 			]
 		}
 	});
@@ -94,7 +109,7 @@
 					transition:scale={{ easing: elasticOut }}>Nice!</span
 				>
 			{/if}
-			Kliknuto {count} krát!
+			Kliknuto {count}krát!
 		</button>
 	</p>
 
@@ -107,9 +122,9 @@
 				který používá společnost DHL.
 			</p>
 		</div>
-		<div class="w-1/2">
+		<div class="w-1/2 relative h-64">
 			{#if browser}
-				<Chart {traces} hideLegend={true} margins={{ top: { px: 10 } }} />
+				<BiChart />
 			{/if}
 		</div>
 	</div>
