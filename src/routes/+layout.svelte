@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { themeStore } from '$lib/ThemeSwitcher.svelte';
+	import { themeStore } from '$lib/components/ThemeSwitcher.svelte';
 
 	import '../app.css';
 

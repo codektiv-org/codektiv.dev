@@ -1,3 +1,5 @@
+import typography from '@tailwindcss/typography';
+
 import daisyui from 'daisyui';
 import { dark } from 'daisyui/src/theming/themes';
 import type { Config } from 'tailwindcss';
@@ -8,7 +10,7 @@ export default {
 		extend: {}
 	},
 	darkMode: 'class',
-	plugins: [daisyui],
+	plugins: [typography, daisyui],
 	daisyui: {
 		themes: [
 			'light',

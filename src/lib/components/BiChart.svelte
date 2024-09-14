@@ -3,7 +3,7 @@
 	import { mut } from '@typek/signalhead';
 	import dayjs from 'dayjs';
 
-	const pointCount = 100;
+	const pointCount = 1000;
 	const range = {
 		from: dayjs('2024-01-01'),
 		to: dayjs('2024-01-31')
@@ -50,7 +50,7 @@
 				id: `foo ${j}`,
 				data: Float64Array.from(
 					{ length: pointCount },
-					(_, i) => -10 * Math.cos((i + 2 * j) / Math.PI)
+					(_, i) => -10 * Math.cos((i / pointCount + j / 24) * Math.PI * 6)
 				)
 			}))
 		}
