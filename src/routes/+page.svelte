@@ -77,7 +77,7 @@
 				V dlouhodobé spolupráci se společností Soumind vyvíjíme nástroj pro analýzu diskových polí,
 				který používá společnost DHL. Hlavní feature je přehledný dashboard zobrazující různé
 				metriky, které vykreslujeme pomocí vlastní, ultra rychlé a ergonomické grafovací knihovny <a
-					href="github.com">libchartium</a
+					href="https://www.github.com/chartium/libchartium">libchartium</a
 				>.
 			</p>
 		</card>
