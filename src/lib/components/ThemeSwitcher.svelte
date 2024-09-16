@@ -15,12 +15,14 @@
 <script lang="ts">
 	import { Moon, Sun } from 'lucide-svelte';
 	import { writable } from 'svelte/store';
+
+	$: label = $themeStore === 'dark' ? 'světlý režim' : 'tmavý režim';
 </script>
 
-<label class="swap swap-rotate" title="Přepnout světlý / tmavý režim">
+<label class="swap swap-rotate" title="Přepnout na {label}">
 	<input
 		tabindex="0"
-		aria-label="Přepnout světlý / tmavý režim"
+		aria-label="Přepnout na {label}"
 		type="checkbox"
 		class="theme-controller rounded-full"
 		checked={$themeStore === 'dark'}

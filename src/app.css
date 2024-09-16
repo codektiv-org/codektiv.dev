@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer components {
+	.h2 {
+		font-size: theme('fontSize.2xl');
+		line-height: theme('lineHeight.8');
+		margin-bottom: theme('margin.2');
+	}
+
 	.card {
 		padding: theme('padding.4');
 		background: theme('backgroundColor.base-200');

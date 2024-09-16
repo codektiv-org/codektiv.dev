@@ -5,7 +5,7 @@
 	export let invert = false;
 </script>
 
-<card class="card p-4 w-full lg:max-w-[calc(33%-1rem)] bg-base-200">
+<card class="card">
 	<div class="card-title">
 		<div class="avatar">
 			<div class="w-24 rounded-xl">

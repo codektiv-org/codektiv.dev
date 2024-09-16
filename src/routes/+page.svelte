@@ -9,13 +9,6 @@
 </script>
 
 <main class="mx-auto mb-4 mt-20 max-w-[80rem] px-8">
-	<style lang="postcss">
-		h1 {
-			font-family: 'CMU', cursive, serif;
-			font-weight: normal;
-			font-style: italic;
-		}
-	</style>
 	<h1 class="flex flex-row justify-center mb-5">
 		<span class="text-8xl">codektiv</span>
 		<span class="inline-block h-full">
@@ -31,17 +24,10 @@
 		řešení vyzkoušet a říct, které se mu líbí. Stejně tak rádi poskytneme náš názor na různá řešení
 		na základě našich předchozích zkušeností. A&nbsp;hlavně: dá se s námi domluvit&nbsp;😉.
 
-		<style lang="postcss">
-			button.indicator:hover:not(:has(.indicator-item:hover)) {
-				--tw-bg-opacity: 1;
-				background-color: rgb(17 24 39 / var(--tw-bg-opacity)) /* #111827 */;
-			}
-		</style>
-
 		<Counter />
 	</p>
-	<h2 class="text-2xl mb-2">Zkušenosti</h2>
-	<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+	<h2 class="h2">Zkušenosti</h2>
+	<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-8">
 		<card class="card">
 			<h3 class="card-title">Chartium</h3>
 			<p class="prose">
@@ -115,8 +101,8 @@
 		<div>screenshot knihovníka?</div> -->
 	</div>
 
-	<h2 class="text-2xl mb-2 mt-8">Tým</h2>
-	<div class="flex flex-wrap justify-around gap-4">
+	<h2 class="h2">Tým</h2>
+	<div class="grid lg:grid-cols-3 gap-6">
 		<TeamMember
 			name="Richard Ivánek"
 			nick="risai"
@@ -148,6 +134,12 @@
 </main>
 
 <style lang="postcss">
+	h1 {
+		font-family: 'CMU', cursive, serif;
+		font-weight: normal;
+		font-style: italic;
+	}
+
 	.card {
 		@apply lg:mt-8;
 	}
