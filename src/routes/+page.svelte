@@ -77,10 +77,12 @@
 			</card>
 		</div>
 		<div class="mockup-window bg-base-300 border border-gray-600">
-			<img
-				src="/koronainfo.png"
-				title="Snímek obrazovky z webu koronainfo.cz z června 2021"
-				alt="
+			<picture>
+				<source srcset="/koronainfo.webp" type="image/webp" />
+				<img
+					src="/koronainfo.png"
+					title="Snímek obrazovky z webu koronainfo.cz z června 2021"
+					alt="
 					Snímek obrazovky z webu koronainfo.cz z června 2021. Na obrazovce je vidět dashboard
 					s několika grafy, tabulkami a mapou. Graf vlevo nahoře ukazuje počty testovaných,
 					pozitivních, aktuálně nemocných, mrtvých a uzdravených v Česku. Graf vpravo ukazuje
@@ -88,8 +90,9 @@
 					státu je umístěný bod s aktuálními informacemi o daném státě. Dole na obrazovce je
 					tabulka „Denní stav v Česku“ s každodenními aktualizacemi, a graf „Tendence v Česku“,
 					který ukazuje procento pozitivních denních testů za poslední měsíc.
-				"
-			/>
+			  "
+				/>
+			</picture>
 		</div>
 		<!-- <card class="card">
 			<h3 class="card-title">Knihovník</h3>
