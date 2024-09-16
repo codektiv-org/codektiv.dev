@@ -9,6 +9,10 @@
 
 <svelte:head>
 	<title>codektiv</title>
+	<meta
+		name="description"
+		content="Jsme mladý kolektiv absolventů MFF UK s vášní pro programování. Rádi s vámi probereme možnou spolupráci. Napište nám. ;)"
+	/>
 </svelte:head>
 
 <slot />

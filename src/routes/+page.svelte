@@ -111,7 +111,7 @@
 			Fullstack developer, <br />
 			milovník zajímavých problémů, <br />
 			řešení, technologií a vědy, <br />
-			<small class="opacity-40">a Pentel EnerGel 0.7mm Metal Tip modré.</small>
+			<small class="opacity-90">a Pentel EnerGel 0.7mm Metal Tip modré.</small>
 		</TeamMember>
 		<TeamMember
 			name="Michal Grňo"
