@@ -7,6 +7,20 @@
 		padding: theme('padding.4');
 		background: theme('backgroundColor.base-200');
 	}
+
+	:root[data-theme='dark'] {
+		--libchartium-secondary-background: theme('colors.gray.800');
+		--libchartium-highlight-background: theme('colors.gray.600');
+	}
+	:root[data-theme='light'] {
+		--libchartium-secondary-background: theme('colors.gray.50');
+		--libchartium-highlight-background: theme('colors.gray.200');
+
+		.tooltip-container,
+		.axis-bubble {
+			@apply shadow-sm border border-gray-300;
+		}
+	}
 }
 
 @font-face {
