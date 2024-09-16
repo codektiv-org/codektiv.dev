@@ -11,6 +11,7 @@
 	const rangeWidth = range.to.diff(range.from);
 	const foregroundTraces = TraceList.union(
 		TraceList.fromColumns({
+			labels: [['rabbits', 'Rabbit population']],
 			x: {
 				type: 'f64',
 				data: Float64Array.from(
@@ -23,11 +24,11 @@
 				type: 'f64',
 				columns: [
 					{
-						id: 'foo',
+						id: 'rabbits',
 						data: Float64Array.from(
 							{ length: pointCount },
 							(_, i) =>
-								(10 * Math.atan((4 * Math.PI * (i - pointCount / 2)) / pointCount)) / Math.PI
+								(100 * Math.atan((4 * Math.PI * (i - pointCount / 2)) / pointCount)) / Math.PI + 50
 						)
 					}
 				]
