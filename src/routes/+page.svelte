@@ -63,30 +63,56 @@
 			<card class="card">
 				<h3 class="card-title">Aplikace Veletrh iKariéra</h3>
 				<p class="prose">
-					V letech 2022 a 2023 jsme pro studentskou organizaci IAESTE ČVUT Praha tvořili a
-					vylepšovali mobilní aplikaci, která sloužila jako průvodce po jimi pořádaném <a
-						href="https://veletrhikariera.cz/">veletrhu práce</a
-					>.
+					V roce 2022 si nás studentská organizace IAESTE ČVUT Praha vybrala pro vývoj mobilní
+					aplikace, která sloužila jako průvodce jejich <a href="https://veletrhikariera.cz/"
+						>veletrhem práce</a
+					>. Díky spokojenosti s naší prací jsme byli v roce 2023 opět osloveni, abychom aplikaci
+					dále vylepšili.
 				</p>
 			</card>
 			<FairAppDemo />
 		</div>
-		<card class="card">
+		<div>
+			<card class="card">
+				<h3 class="card-title">Koronainfo.cz</h3>
+				<p class="prose">
+					Na začátku pandemie jsme s kamarády napsali stránku, která sloužila jako informační a
+					predikční web pro vývoj pandemie v České republice a na Slovensku.
+				</p>
+			</card>
+			<card class="card">
+				<p class="prose">
+					Podoba webu z června 2021 je k dispozici ve <a
+						href="https://web.archive.org/web/20210616023919/https://koronainfo.cz/"
+						>webovém archivu</a
+					>
+					a zdrojový kód na <a href="https://gitlab.com/RisaI/koronainfo">GitLabu</a>.
+				</p>
+			</card>
+		</div>
+		<div class="mockup-window bg-base-300 border border-gray-600">
+			<img
+				src="/koronainfo.png"
+				title="Snímek obrazovky z webu koronainfo.cz z června 2021"
+				alt="
+					Snímek obrazovky z webu koronainfo.cz z června 2021. Na obrazovce je vidět dashboard
+					s několika grafy, tabulkami a mapou. Graf vlevo nahoře ukazuje počty testovaných,
+					pozitivních, aktuálně nemocných, mrtvých a uzdravených v Česku. Graf vpravo ukazuje
+					tytéž metriky pro celý svět. Uprostřed je interaktivní mapa střední Evropy, na každém
+					státu je umístěný bod s aktuálními informacemi o daném státě. Dole na obrazovce je
+					tabulka „Denní stav v Česku“ s každodenními aktualizacemi, a graf „Tendence v Česku“,
+					který ukazuje procento pozitivních denních testů za poslední měsíc.
+				"
+			/>
+		</div>
+		<!-- <card class="card">
 			<h3 class="card-title">Knihovník</h3>
 			<p class="prose">
 				Aplikace pro knihovní ekonomiku která umí všechno bro je fakt dobrá bro idk bro ještě jsme
 				ji neudělali ale je fakt dobrá bro
 			</p>
 		</card>
-		<div>screenshot knihovníka?</div>
-		<card class="card">
-			<h3 class="card-title">Koronainfo.cz</h3>
-			<p class="prose">
-				Na začátku pandemie jsme s kamarády napsali stránku, která sloužila jako informační a
-				predikční web pro vývoj pandemie v České republice a na Slovensku
-			</p>
-		</card>
-		<div>screenshot coronainfa?</div>
+		<div>screenshot knihovníka?</div> -->
 	</div>
 
 	<h2 class="text-2xl mb-2 mt-8">Tým</h2>

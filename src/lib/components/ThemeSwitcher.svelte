@@ -17,7 +17,7 @@
 	import { writable } from 'svelte/store';
 </script>
 
-<label class="swap swap-rotate">
+<label class="swap swap-rotate" title="Přepnout světlý / tmavý režim">
 	<input
 		tabindex="0"
 		aria-label="Přepnout světlý / tmavý režim"
