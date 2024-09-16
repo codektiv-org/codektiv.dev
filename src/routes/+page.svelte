@@ -1,13 +1,9 @@
 <script lang="ts">
-	import { scale } from 'svelte/transition';
-	import { elasticOut } from 'svelte/easing';
-	import { RefreshCcw } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 	import TeamMember from '$lib/components/TeamMember.svelte';
+	import Counter from '$lib/components/Counter.svelte';
 	const ChartiumDemoPromise = import('$lib/components/ChartiumDemo.svelte').then((d) => d.default);
-
-	let count = 0;
 </script>
 
 <main class="mx-auto mb-4 mt-20 max-w-[80rem] px-8">
@@ -40,33 +36,7 @@
 			}
 		</style>
 
-		<span class="indicator block my-5 ml-auto">
-			<button class="btn btn-neutral" tabindex="0" on:click={() => (count += 1)}>
-				Kliknuto {count}krát!
-			</button>
-
-			{#if count > 0 && count !== 69}
-				<span class="indicator-item">
-					<button
-						class="btn btn-circle btn-sm"
-						tabindex="0"
-						aria-label="Resetovat číselník"
-						on:click={() => (count = 0)}
-						on:keypress={(e) => ['Enter', ' '].includes(e.key) && (count = 0)}
-						transition:scale={{ easing: elasticOut }}
-					>
-						<RefreshCcw size={20} />
-					</button>
-				</span>
-			{:else if count === 69}
-				<span
-					class="indicator-item rounded-md bg-lime-700 px-1"
-					transition:scale={{ easing: elasticOut }}
-				>
-					Nice!
-				</span>
-			{/if}
-		</span>
+		<Counter />
 	</p>
 	<h2 class="text-2xl mb-2">Zkušenosti</h2>
 	<div class="space-y-8 flex flex-row flex-wrap">
