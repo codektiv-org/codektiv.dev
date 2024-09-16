@@ -117,8 +117,15 @@
 
 	<h2 class="text-2xl mb-2 mt-8">Tým</h2>
 	<div class="flex flex-wrap justify-around gap-4">
-		<TeamMember name="Richard Ivánek" pfp="https://avatars.githubusercontent.com/u/7413196?v=4">
-			Backenďák & a smort guy
+		<TeamMember
+			name="Richard Ivánek"
+			nick="risai"
+			pfp="https://avatars.githubusercontent.com/u/7413196?v=4"
+		>
+			Fullstack developer, <br />
+			milovník zajímavých problémů, <br />
+			řešení, technologií a vědy, <br />
+			<small class="opacity-40">a Pentel EnerGel 0.7mm Metal Tip modré.</small>
 		</TeamMember>
 		<TeamMember
 			name="Michal Grňo"
