@@ -1,15 +1,10 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import { themeStore } from '$lib/components/ThemeSwitcher.svelte';
 
 	import '../app.css';
 
-	$: {
-		if (browser) {
-			document.documentElement.classList.toggle('dark', $themeStore === 'dark');
-			document.documentElement.dataset.theme = $themeStore;
-		}
-	}
+	onMount(() => themeStore.subscribe((value) => (document.documentElement.dataset.theme = value)));
 </script>
 
 <svelte:head>

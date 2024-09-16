@@ -3,6 +3,7 @@
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 	import TeamMember from '$lib/components/TeamMember.svelte';
 	import Counter from '$lib/components/Counter.svelte';
+
 	const ChartiumDemoPromise = import('$lib/components/ChartiumDemo.svelte').then((d) => d.default);
 </script>
 
@@ -39,8 +40,8 @@
 		<Counter />
 	</p>
 	<h2 class="text-2xl mb-2">Zkušenosti</h2>
-	<div class="space-y-8 flex flex-row flex-wrap">
-		<card class="exp-card">
+	<div class="grid lg:grid-cols-2 gap-6">
+		<card class="card">
 			<h3 class="card-title">Chartium</h3>
 			<p class="prose">
 				V dlouhodobé spolupráci se společností Soumind vyvíjíme nástroj pro analýzu diskových polí,
@@ -50,29 +51,29 @@
 				>.
 			</p>
 		</card>
-		<div class="w-full lg:w-1/2 relative h-64">
+		<div class="relative h-64">
 			{#if browser}
 				{#await ChartiumDemoPromise then ChartiumDemo}
 					<ChartiumDemo />
 				{/await}
 			{/if}
 		</div>
-		<card class="exp-card">
+		<card class="card">
 			<h3 class="card-title">Knihovník</h3>
 			<p class="prose">
 				Aplikace pro knihovní ekonomiku která umí všechno bro je fakt dobrá bro idk bro ještě jsme
 				ji neudělali ale je fakt dobrá bro
 			</p>
 		</card>
-		<div class="w-full lg:w-1/2">screenshot knihovníka?</div>
-		<card class="exp-card">
-			<h3 class="card-title">Koronainfo</h3>
+		<div>screenshot knihovníka?</div>
+		<card class="card">
+			<h3 class="card-title">Koronainfo.cz</h3>
 			<p class="prose">
 				Na začátku pandemie jsme s kamarády napsali stránku, která sloužila jako informační a
 				predikční web pro vývoj pandemie v České republice a na Slovensku
 			</p>
 		</card>
-		<div class="w-full lg:w-1/2">screenshot coronainfa?</div>
+		<div>screenshot coronainfa?</div>
 	</div>
 
 	<h2 class="text-2xl mb-2 mt-8">Tým</h2>
@@ -88,9 +89,3 @@
 		</TeamMember>
 	</div>
 </main>
-
-<style>
-	.exp-card {
-		@apply w-full lg:w-1/2 card p-4 bg-base-200;
-	}
-</style>

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.card {
+		padding: theme('padding.4');
+		background: theme('backgroundColor.base-200');
+	}
+}
+
 @font-face {
 	font-family: 'CMU';
 	src:
