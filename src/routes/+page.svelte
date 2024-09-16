@@ -117,13 +117,21 @@
 
 	<h2 class="text-2xl mb-2 mt-8">Tým</h2>
 	<div class="flex flex-wrap justify-around gap-4">
-		<TeamMember name="Richard Ivánek" imgsrc="https://avatars.githubusercontent.com/u/7413196?v=4">
+		<TeamMember name="Richard Ivánek" pfp="https://avatars.githubusercontent.com/u/7413196?v=4">
 			Backenďák & a smort guy
 		</TeamMember>
-		<TeamMember name="Michal Grňo" imgsrc="https://avatars.githubusercontent.com/u/1671665?v=4">
+		<TeamMember
+			name="Michal Grňo"
+			nick="csha"
+			pfp="https://avatars.githubusercontent.com/u/1671665?v=4"
+		>
 			Frontenďák & a smort guy
 		</TeamMember>
-		<TeamMember name="Ondra Janoška" imgsrc="https://avatars.githubusercontent.com/u/78506690?v=4">
+		<TeamMember
+			name="Ondra Janoška"
+			nick="quacken"
+			pfp="https://avatars.githubusercontent.com/u/78506690?v=4"
+		>
 			Cat dad & a silly guy
 		</TeamMember>
 	</div>
