@@ -72,17 +72,30 @@
 				<div class="camera"></div>
 				<div class="display">
 					<div class="artboard-demo">
-						<img
-							src="/fair-1.png"
-							title="Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra"
-							alt="
-								Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra.
-								Nahoře je ikona pro přepnutí jazyka, pod ní titulek „veletrh... iKariéra na ČVUT“
-								a pod titulkem tlačítka: O veletrhu, Seznam firem, Pracovní nabídky, Program dne,
-								O IAESTE, Soutěž. Na spodním kraji obrazovky je navigační panel s ikonkami pro
-								rychlou navigaci: „domů“, „seznam“, „mapa“ a „kalendář“.
-							"
-						/>
+						<div class="carousel w-[284px]">
+							<div class="carousel-item">
+								<img
+									src="/fair-1.png"
+									title="Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra"
+									alt="
+										Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra.
+										Nahoře je ikona pro přepnutí jazyka, pod ní titulek „veletrh... iKariéra na ČVUT“
+										a pod titulkem tlačítka: O veletrhu, Seznam firem, Pracovní nabídky, Program dne,
+										O IAESTE, Soutěž. Na spodním kraji obrazovky je navigační panel s ikonkami pro
+										rychlou navigaci: „domů“, „seznam“, „mapa“ a „kalendář“.
+									"
+								/>
+							</div>
+							<div class="carousel-item">
+								<img
+									src="/fair-2.png"
+									title="Snímek obrazovky ukazující seznam aktuálních pracovních nabídek."
+									alt="
+										Snímek obrazovky ukazující seznam aktuálních pracovních nabídek.
+									"
+								/>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
