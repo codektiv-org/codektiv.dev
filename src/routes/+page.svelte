@@ -125,7 +125,10 @@
 			nick="csha"
 			pfp="https://avatars.githubusercontent.com/u/1671665?v=4"
 		>
-			Frontenďák & a smort guy
+			UI & UX designer, <br />
+			fanoušek permakultury, <br />
+			humanitních věd, <br />
+			a anarchistických zínů.
 		</TeamMember>
 		<TeamMember
 			name="Ondra Janoška"
