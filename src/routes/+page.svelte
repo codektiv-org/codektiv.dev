@@ -5,8 +5,7 @@
 	import { browser } from '$app/environment';
 	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 	import TeamMember from '$lib/components/TeamMember.svelte';
-
-	const BiChart = import('$lib/components/BiChart.svelte').then((d) => d.default);
+	const ChartiumDemoPromise = import('$lib/components/ChartiumDemo.svelte').then((d) => d.default);
 
 	let count = 0;
 </script>
@@ -83,8 +82,8 @@
 		</card>
 		<div class="w-full lg:w-1/2 relative h-64">
 			{#if browser}
-				{#await BiChart then Chart}
-					<Chart />
+				{#await ChartiumDemoPromise then ChartiumDemo}
+					<ChartiumDemo />
 				{/await}
 			{/if}
 		</div>
@@ -117,13 +116,6 @@
 		<TeamMember name="Ondra Janoška" imgsrc="https://avatars.githubusercontent.com/u/78506690?v=4">
 			Cat dad & a silly guy
 		</TeamMember>
-		<!-- <TeamMember
-			name="Ivan Richárdek"
-			imgsrc="https://avatars.githubusercontent.com/u/7413196?v=4"
-			invert
-		>
-			Fullstack & an evil twin
-		</TeamMember> -->
 	</div>
 </main>
 
