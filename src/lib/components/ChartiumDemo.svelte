@@ -61,23 +61,21 @@
 	const commonXRange$ = mut(range);
 </script>
 
-<div class="w-full h-64 relative">
-	<div class="absolute h-3/4 w-3/4 left-0 top-0 blur-[1px] shadow-sm">
-		<Chart
-			traces={backgroundTraces}
-			commonXRuler$={sharedRuler$}
-			disableUserRangeChanges={{ x: true, y: true }}
-			hideLegend
-			hideXBubble
-			{commonXRange$}
-		>
-			<div slot="toolbar" />
-		</Chart>
-	</div>
-	<div class="absolute h-full w-full"></div>
-	<div class="absolute h-3/4 w-3/4 right-0 bottom-0 bg-base-200 rounded-lg pr-8 shadow-sm">
-		<Chart traces={foregroundTraces} {commonXRange$} commonXRuler$={sharedRuler$} hideLegend>
-			<div slot="toolbar" />
-		</Chart>
-	</div>
+<div class="absolute h-3/4 w-3/4 left-0 top-0 blur-[1px] shadow-sm">
+	<Chart
+		traces={backgroundTraces}
+		commonXRuler$={sharedRuler$}
+		disableUserRangeChanges={{ x: true, y: true }}
+		hideLegend
+		hideXBubble
+		{commonXRange$}
+	>
+		<div slot="toolbar" />
+	</Chart>
+</div>
+<div class="absolute h-full w-full"></div>
+<div class="absolute h-3/4 w-3/4 right-0 bottom-0 bg-base-200 rounded-lg pr-8 shadow-sm">
+	<Chart traces={foregroundTraces} {commonXRange$} commonXRuler$={sharedRuler$} hideLegend>
+		<div slot="toolbar" />
+	</Chart>
 </div>

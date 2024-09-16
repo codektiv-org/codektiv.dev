@@ -40,7 +40,7 @@
 		<Counter />
 	</p>
 	<h2 class="text-2xl mb-2">Zkušenosti</h2>
-	<div class="grid lg:grid-cols-2 gap-6">
+	<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 		<card class="card">
 			<h3 class="card-title">Chartium</h3>
 			<p class="prose">
@@ -51,42 +51,38 @@
 				>.
 			</p>
 		</card>
-		<div class="relative h-64">
+		<div class="relative h-96">
 			{#if browser}
 				{#await ChartiumDemoPromise then ChartiumDemo}
 					<ChartiumDemo />
 				{/await}
 			{/if}
 		</div>
-		<div class="grid grid-cols-subgrid gap-[inherit] lg:col-span-2">
-			<div>
-				<card class="card">
-					<h3 class="card-title">Aplikace Veletrh iKariéra</h3>
-					<p class="prose">
-						V letech 2022 a 2023 jsme pro studentskou organizaci IAESTE ČVUT Praha vytvořili mobilní
-						aplikaci, která sloužila jako průvodce po jimi pořádaném <a
-							href="https://veletrhikariera.cz/">veletrhu práce</a
-						>.
-					</p>
-				</card>
-			</div>
-			<div class="flex justify-center lg:-order-1 lg:justify-end">
-				<div class="mockup-phone m-0">
-					<div class="camera"></div>
-					<div class="display">
-						<div class="artboard-demo">
-							<img
-								src="/fair-1.png"
-								title="Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra"
-								alt="
+		<div class="grid grid-cols-subgrid gap-[inherit] lg:col-span-2 items-start">
+			<card class="card">
+				<h3 class="card-title">Aplikace Veletrh iKariéra</h3>
+				<p class="prose">
+					V letech 2022 a 2023 jsme pro studentskou organizaci IAESTE ČVUT Praha tvořili a
+					vylepšovali mobilní aplikaci, která sloužila jako průvodce po jimi pořádaném <a
+						href="https://veletrhikariera.cz/">veletrhu práce</a
+					>.
+				</p>
+			</card>
+			<div class="mockup-phone m-0 lg:-order-1 place-self-center lg:place-self-end">
+				<div class="camera"></div>
+				<div class="display">
+					<div class="artboard-demo">
+						<img
+							src="/fair-1.png"
+							title="Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra"
+							alt="
 								Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra.
 								Nahoře je ikona pro přepnutí jazyka, pod ní titulek „veletrh... iKariéra na ČVUT“
 								a pod titulkem tlačítka: O veletrhu, Seznam firem, Pracovní nabídky, Program dne,
 								O IAESTE, Soutěž. Na spodním kraji obrazovky je navigační panel s ikonkami pro
 								rychlou navigaci: „domů“, „seznam“, „mapa“ a „kalendář“.
 							"
-							/>
-						</div>
+						/>
 					</div>
 				</div>
 			</div>
@@ -122,3 +118,9 @@
 		</TeamMember>
 	</div>
 </main>
+
+<style lang="postcss">
+	.card {
+		@apply lg:mt-8;
+	}
+</style>
