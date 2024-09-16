@@ -21,8 +21,8 @@ importers:
         specifier: ^1.11.13
         version: 1.11.13
       libchartium:
-        specifier: ^0.32.6
-        version: 0.32.6(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.4(sass@1.78.0))
+        specifier: ^0.34.0
+        version: 0.34.0(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.4(sass@1.78.0))
       lucide-svelte:
         specifier: ^0.439.0
         version: 0.439.0(svelte@4.2.19)
@@ -1064,8 +1064,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libchartium@0.32.6:
-    resolution: {integrity: sha512-RSzXgFj4rkoe1F9JasoUzHmlHSWcALruQ3UgAmvFzck/A5B0dqgJto8wk96Fhqs9D/03yLH+gPsaPgdchTYB9g==}
+  libchartium@0.34.0:
+    resolution: {integrity: sha512-Bwg5fBb84kkoJSWmJvRxs9ogMKokNREuKOBi4rTMyL03tEmy3j8nzguhBg+mdogt3hwYItDwBOx8u8pR8J6RIg==}
     peerDependencies:
       fraction.js: ^4.3.7
       unitlib: ^0.8.11
@@ -2534,7 +2534,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libchartium@0.32.6(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.4(sass@1.78.0)):
+  libchartium@0.34.0(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.4(sass@1.78.0)):
     dependencies:
       '@fortawesome/free-solid-svg-icons': 6.6.0
       '@risai/bim': 1.4.2
