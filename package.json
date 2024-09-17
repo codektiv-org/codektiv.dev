@@ -17,7 +17,7 @@
 		"@typek/signalhead": "npm:@jsr/typek__signalhead@^0.0.39",
 		"@typek/typek": "npm:@jsr/typek__typek@^0.6.7",
 		"dayjs": "^1.11.13",
-		"libchartium": "^0.35.1",
+		"libchartium": "^0.35.2",
 		"lucide-svelte": "^0.441.0",
 		"vite-plugin-wasm": "^3.3.0"
 	},

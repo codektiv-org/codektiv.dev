@@ -21,8 +21,8 @@ importers:
         specifier: ^1.11.13
         version: 1.11.13
       libchartium:
-        specifier: ^0.35.1
-        version: 0.35.1(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.6(sass@1.78.0))
+        specifier: ^0.35.2
+        version: 0.35.2(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.6(sass@1.78.0))
       lucide-svelte:
         specifier: ^0.441.0
         version: 0.441.0(svelte@5.0.0-next.249)
@@ -1265,8 +1265,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libchartium@0.35.1:
-    resolution: {integrity: sha512-DP8wPs3XXCr7CIkxvmRIqbnggSVMtnQJuKAtH96+tnm+cV9PWCsE6WF6Q+wk5I5KtPK1DHyOq/KGCFlhZhviww==}
+  libchartium@0.35.2:
+    resolution: {integrity: sha512-Cyjog+yWSHJIMkdJAKDe2dK/8hAAPUP5Qe/X1IgdL9h7nIQJBSCmtCj4hhPVY4/vqNeE8xT1d4h+Af5gi2j5jA==}
     peerDependencies:
       fraction.js: ^4.3.7
       unitlib: ^0.8.11
@@ -1520,10 +1520,6 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-
-  random@4.1.0:
-    resolution: {integrity: sha512-6Ajb7XmMSE9EFAMGC3kg9mvE7fGlBip25mYYuSMzw/uUSrmGilvZo2qwX3RnTRjwXkwkS+4swse9otZ92VjAtQ==}
-    engines: {node: '>=14'}
 
   read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -2953,7 +2949,7 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libchartium@0.35.1(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.6(sass@1.78.0)):
+  libchartium@0.35.2(fraction.js@4.3.7)(unitlib@0.8.11(fraction.js@4.3.7)(typescript@5.6.2))(vite@5.4.6(sass@1.78.0)):
     dependencies:
       '@fortawesome/free-solid-svg-icons': 6.6.0
       '@risai/bim': 1.4.2
@@ -2967,7 +2963,6 @@ snapshots:
       fraction.js: 4.3.7
       html-to-image: 1.11.11
       lodash-es: 4.17.21
-      random: 4.1.0
       sass: 1.78.0
       seedrandom: 3.0.5
       svelte: 4.2.19
@@ -3173,10 +3168,6 @@ snapshots:
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
-
-  random@4.1.0:
-    dependencies:
-      seedrandom: 3.0.5
 
   read-cache@1.0.0:
     dependencies:
