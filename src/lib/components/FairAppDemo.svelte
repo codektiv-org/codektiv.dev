@@ -2,10 +2,10 @@
 	<div class="camera"></div>
 	<div class="display">
 		<div class="artboard-demo">
-			<div class="carousel w-[284px] h-[533px]">
-				<div class="carousel-item">
+			<div class="carousel w-[284px]">
+				<div class="carousel-item max-w-full">
 					<enhanced:img
-						src="/static/fair-1.png"
+						src="/static/fair-1.png?w=412"
 						title="Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra"
 						alt="
               Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra.
@@ -18,7 +18,14 @@
 				</div>
 				<div class="carousel-item">
 					<enhanced:img
-						src="/static/fair-2.png"
+						src="/static/fair-2.png?w=412"
+						title="Snímek obrazovky ukazující mapu veletrhu."
+						alt="Snímek obrazovky ukazující interaktivní mapu veletrhu."
+					/>
+				</div>
+				<div class="carousel-item">
+					<enhanced:img
+						src="/static/fair-3.png?w=412"
 						title="Snímek obrazovky ukazující seznam aktuálních pracovních nabídek."
 						alt="
               Snímek obrazovky ukazující seznam aktuálních pracovních nabídek. Nahoře je nadpis
@@ -34,3 +41,9 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.carousel-item {
+		max-width: 100%;
+	}
+</style>
