@@ -5,6 +5,10 @@
 	import Counter from '$lib/components/Counter.svelte';
 	import FairAppDemo from '$lib/components/FairAppDemo.svelte';
 
+	import risaiPfp from '../pfps/risai.jpeg?w=128&enhanced';
+	import cshaPfp from '../pfps/csha.jpeg?w=128&enhanced';
+	import quackenPfp from '../pfps/quacken.jpeg?w=128&enhanced';
+
 	const ChartiumDemoPromise = import('$lib/components/ChartiumDemo.svelte').then((d) => d.default);
 </script>
 
@@ -103,28 +107,19 @@
 
 	<h2 class="h2">Tým</h2>
 	<div class="grid lg:grid-cols-3 gap-6">
-		<TeamMember name="Richard Ivánek" nick="risai">
-			<svelte:fragment slot="avatar">
-				<enhanced:img src="/static/risai.jpeg?w=128" alt="Richard Ivánek" />
-			</svelte:fragment>
+		<TeamMember name="Richard Ivánek" nick="risai" pfp={risaiPfp}>
 			Fullstack developer, <br />
 			milovník zajímavých problémů, <br />
 			řešení, technologií a vědy, <br />
 			<small class="opacity-90">a Pentel EnerGel 0.7mm Metal Tip modré.</small>
 		</TeamMember>
-		<TeamMember name="Michal Grňo" nick="csha">
-			<svelte:fragment slot="avatar">
-				<enhanced:img src="/static/csha.jpeg?w=128" alt="Michal Grňo" />
-			</svelte:fragment>
+		<TeamMember name="Michal Grňo" nick="csha" pfp={cshaPfp}>
 			UI & UX designer, <br />
 			fanoušek permakultury, <br />
 			humanitních věd, <br />
 			a anarchistických zínů.
 		</TeamMember>
-		<TeamMember name="Ondra Janoška" nick="quacken">
-			<svelte:fragment slot="avatar">
-				<enhanced:img src="/static/quacken.jpeg?w=128" alt="Ondra Janoška" />
-			</svelte:fragment>
+		<TeamMember name="Ondra Janoška" nick="quacken" pfp={quackenPfp}>
 			Cat dad & a silly guy
 		</TeamMember>
 	</div>

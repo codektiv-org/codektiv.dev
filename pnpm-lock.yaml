@@ -93,6 +93,9 @@ importers:
       vite:
         specifier: ^5.4.6
         version: 5.4.6(sass@1.78.0)
+      vite-imagetools:
+        specifier: ^7.0.4
+        version: 7.0.4(rollup@4.21.2)
 
 packages:
 

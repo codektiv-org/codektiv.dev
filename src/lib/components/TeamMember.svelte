@@ -1,13 +1,16 @@
 <script lang="ts">
+	import type { EnhancedImgAttributes } from '@sveltejs/enhanced-img';
+
 	export let name: string;
 	export let nick: string | undefined = undefined;
+	export let pfp: EnhancedImgAttributes['src'];
 </script>
 
 <card class="card">
 	<div class="card-title">
 		<div class="avatar">
 			<div class="w-24 rounded-xl">
-				<slot name="avatar" />
+				<enhanced:img src={pfp} alt={name} />
 			</div>
 		</div>
 		<div class="pl-4">
