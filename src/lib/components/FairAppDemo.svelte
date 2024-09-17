@@ -4,8 +4,8 @@
 		<div class="artboard-demo">
 			<div class="carousel w-[284px] h-[533px]">
 				<div class="carousel-item">
-					<img
-						src="/fair-1.png"
+					<enhanced:img
+						src="/static/fair-1.png"
 						title="Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra"
 						alt="
               Snímek obrazovky ukazující hlavní menu aplikace Veletrh iKariéra.
@@ -17,8 +17,8 @@
 					/>
 				</div>
 				<div class="carousel-item">
-					<img
-						src="/fair-2.png"
+					<enhanced:img
+						src="/static/fair-2.png"
 						title="Snímek obrazovky ukazující seznam aktuálních pracovních nabídek."
 						alt="
               Snímek obrazovky ukazující seznam aktuálních pracovních nabídek. Nahoře je nadpis
