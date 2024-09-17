@@ -125,7 +125,10 @@
 			<svelte:fragment slot="avatar">
 				<enhanced:img src="/static/quacken.jpeg?w=128" alt="Ondra Janoška" />
 			</svelte:fragment>
-			Cat dad & a silly guy
+			Frontend developer, <br />
+			srdcem astrofyzik, <br />
+			táta jednookého kocoura <br />
+			a milovník kafe.
 		</TeamMember>
 	</div>
 </main>
