@@ -8,7 +8,6 @@
 	let observer: IntersectionObserver;
 	export let images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
 	export let widthPx: number;
-	export let heightPx: number;
 	let intervalId: number;
 
 	onMount(() => {
@@ -60,12 +59,7 @@
 	}
 </script>
 
-<div
-	class="carousel"
-	style:width={`${widthPx}px`}
-	style:height={`${heightPx}px`}
-	bind:this={carouselDiv}
->
+<div class="carousel" style:width={`${widthPx}px`} bind:this={carouselDiv}>
 	{#if images.length > 0}
 		{@const { src, title, alt } = images[images.length - 1]}
 		<div class="carousel-item relative w-full" id="first" bind:this={firstDiv}>
