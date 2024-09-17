@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	export let slideCarousel: (direction: 'left' | 'right') => void;
 </script>
 
@@ -35,4 +35,4 @@ rychlou navigaci: „domů“, „seznam“, „mapa“ a „kalendář“.
 		<button on:click={() => slideCarousel('left')} class="btn btn-circle">❮</button>
 		<button on:click={() => slideCarousel('right')} class="btn btn-circle">❯</button>
 	</div>
-</div>
+</div> -->
