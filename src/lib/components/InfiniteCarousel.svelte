@@ -2,31 +2,32 @@
 	import { onMount } from 'svelte';
 	import type { EnhancedImgAttributes } from '@sveltejs/enhanced-img';
 
-	let carouselDiv: HTMLDivElement;
-	let firstDiv: HTMLDivElement;
-	let lastDiv: HTMLDivElement;
-	let observer: IntersectionObserver;
 	export let images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
-	export let widthPx: number;
+
 	let intervalId: number;
+	function restartInterval() {
+		clearInterval(intervalId);
+		intervalId = setInterval(() => {
+			slideCarousel('right');
+		}, 5 * 1000);
+	}
 
+	let carouselDiv: HTMLDivElement;
 	onMount(() => {
-		carouselDiv.style.scrollBehavior = 'auto';
-		carouselDiv.scrollLeft = carouselDiv.clientWidth;
-		carouselDiv.style.scrollBehavior = 'smooth';
+		carouselDiv.scrollTo({ behavior: 'instant', left: carouselDiv.clientWidth });
 
-		observer = new IntersectionObserver(
+		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						carouselDiv.style.scrollBehavior = 'auto';
-						if (entry.target.id === 'first') {
-							carouselDiv.scrollLeft = carouselDiv.clientWidth * (carouselDiv.children.length - 2);
-						} else {
-							carouselDiv.scrollLeft = carouselDiv.clientWidth;
-						}
-						carouselDiv.style.scrollBehavior = 'smooth';
-					}
+					if (!entry.isIntersecting) return;
+
+					carouselDiv.scrollTo({
+						behavior: 'instant',
+						left:
+							entry.target === entry.target.parentElement?.firstChild
+								? carouselDiv.clientWidth * (carouselDiv.children.length - 2)
+								: carouselDiv.clientWidth
+					});
 				});
 			},
 			{
@@ -34,15 +35,15 @@
 				threshold: 1.0
 			}
 		);
-		[firstDiv, lastDiv].forEach((d) => {
-			observer.observe(d);
-		});
 
-		intervalId = setInterval(() => {
-			slideCarousel('right');
-		}, 5 * 1000);
+		carouselDiv.querySelectorAll('.observed').forEach((d) => observer.observe(d));
 
-		return () => clearInterval(intervalId);
+		restartInterval();
+
+		return () => {
+			observer.disconnect();
+			clearInterval(intervalId);
+		};
 	});
 
 	function slideCarousel(direction: 'left' | 'right') {
@@ -51,62 +52,37 @@
 	}
 
 	function buttonSlideCarousel(direction: 'left' | 'right') {
-		clearInterval(intervalId);
+		restartInterval();
 		slideCarousel(direction);
-		intervalId = setInterval(() => {
-			slideCarousel('right');
-		}, 5 * 1000);
 	}
+
+	$: items = images.length > 0 ? [images.at(-1)!, ...images, images.at(0)!] : images;
 </script>
 
-<div class="carousel" style:width={`${widthPx}px`} bind:this={carouselDiv}>
-	{#if images.length > 0}
-		{@const { src, title, alt } = images[images.length - 1]}
-		<div class="carousel-item relative w-full" id="first" bind:this={firstDiv}>
+<div class="carousel" bind:this={carouselDiv}>
+	{#each items as { src, alt, title }, i}
+		{@const observed = i === 0 || i === items.length - 1}
+		<div class="carousel-item w-full" class:observed>
 			<enhanced:img {src} {title} {alt} />
-			<div class="overlay">
-				<button on:click={() => buttonSlideCarousel('left')} class="btn btn-circle">❮</button>
-				<button on:click={() => buttonSlideCarousel('right')} class="btn btn-circle">❯</button>
-			</div>
-		</div>
-	{/if}
-
-	{#each images as { src, alt, title }}
-		<div class="carousel-item relative w-full">
-			<enhanced:img {src} {title} {alt} />
-			<div class="overlay">
-				<button on:click={() => buttonSlideCarousel('left')}>❮</button>
-				<button on:click={() => buttonSlideCarousel('right')}>❯</button>
-			</div>
 		</div>
 	{/each}
-
-	{#if images.length > 0}
-		{@const { src, title, alt } = images[0]}
-		<div class="carousel-item relative w-full" id="last" bind:this={lastDiv}>
-			<enhanced:img {src} {title} {alt} />
-			<div class="overlay">
-				<button on:click={() => buttonSlideCarousel('left')}>❮</button>
-				<button on:click={() => buttonSlideCarousel('right')}>❯</button>
-			</div>
-		</div>
-	{/if}
+</div>
+<div class="overlay">
+	<button on:click={() => buttonSlideCarousel('left')}>❮</button>
+	<button on:click={() => buttonSlideCarousel('right')}>❯</button>
 </div>
 
 <style>
 	.overlay {
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+		inset: 0;
 
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
 
-	div > button {
+	button {
 		transition: ease 0.2s;
 		background-color: black;
 		color: white;
@@ -116,7 +92,7 @@
 		opacity: 0;
 	}
 
-	div:hover > button {
+	.overlay:hover > button {
 		opacity: 0.3;
 	}
 </style>

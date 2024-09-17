@@ -6,12 +6,11 @@
 	import Image3 from '$lib/fair-3.png?w=412&enhanced';
 </script>
 
-<div class="mockup-phone m-0 lg:-order-1 place-self-center lg:place-self-end">
+<div class="mockup-phone m-0 lg:-order-1 w-[284px] place-self-center lg:place-self-end">
 	<div class="camera"></div>
 	<div class="display">
-		<div class="artboard-demo">
+		<div class="artboard-demo relative">
 			<InfiniteCarousel
-				widthPx={284}
 				images={[
 					{
 						src: Image1,
@@ -28,7 +27,7 @@ rychlou navigaci: „domů“, „seznam“, „mapa“ a „kalendář“.
 						title: 'Snímek obrazovky ukazující interaktivní mapu veletrhu.',
 						alt: `Snímek obrazovky ukazující interaktivní mapu veletrhu. Uprostřed nahoře
 je nadpis Mapa, pod ním aktuální den veletrhu: úterý. Pod nimi jsou vyznačeny tři fakulty
-v kampusu ČVUT: fakulta Stavební, fakulta Architektury a fakulta informačních technologií. 
+v kampusu ČVUT: fakulta Stavební, fakulta Architektury a fakulta informačních technologií.
 Kromě nich je vyznačená také Technická ulice, knihovna a šapitó.`
 					},
 					{
