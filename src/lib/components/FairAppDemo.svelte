@@ -1,29 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import InfiniteCarousel from './InfiniteCarousel.svelte';
 	import Image1 from '$lib/fair-1.png?enhanced';
 	import Image2 from '$lib/fair-2.png?enhanced';
-
-	let carouselDiv: HTMLDivElement;
-
-	onMount(() => {
-		carouselDiv.scrollLeft = 2 * carouselDiv.clientWidth;
-	});
-
-	function slideCarousel(direction: 'left' | 'right') {
-		const multiplier = direction === 'left' ? -1 : 1;
-
-		const wouldScrollOut =
-			carouselDiv.scrollLeft < carouselDiv.clientWidth ||
-			carouselDiv.scrollLeft > carouselDiv.clientWidth * (carouselDiv.children.length - 2);
-
-		if (wouldScrollOut) {
-			carouselDiv.style.scrollBehavior = 'auto';
-			carouselDiv.scrollBy({ left: -2 * carouselDiv.clientWidth * multiplier });
-			carouselDiv.style.scrollBehavior = 'smooth';
-		}
-		carouselDiv.scrollBy({ left: multiplier });
-	}
 </script>
 
 <div class="mockup-phone m-0 lg:-order-1 place-self-center lg:place-self-end">

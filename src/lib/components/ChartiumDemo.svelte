@@ -13,24 +13,14 @@
 		TraceList.fromColumns({
 			labels: [
 				['rabbits', 'Rabbit Population'],
-				['trail', 'A Sick Mountain Bike Trail'],
-				['loop1', 'Loop-de-loop'],
-				['loop2', 'Ramp']
+				['carrots', 'Carrot Population']
 			],
 			style: {
 				rabbits: {
 					'z-index': 1
 				},
-				trail: {
-					'palette-index': 0
-				},
-				loop1: {
-					'palette-index': 0,
-					'tooltip-visibility': 'hidden'
-				},
-				loop2: {
-					'palette-index': 0,
-					'tooltip-visibility': 'hidden'
+				carrots: {
+					color: 'orange'
 				}
 			},
 			x: {
@@ -53,36 +43,43 @@
 						)
 					},
 					{
-						id: 'trail',
-						data: Float64Array.from({ length: pointCount }, (_, i) => {
-							if (i <= 120) return 70 - i ** 3 / 100_000; // ends on value 42.72, slope -0.432
-							if (i <= 200) return Math.exp(-0.0339623 * i + 6.61865) + 40; // ends on value 30.84, slope -0.0285
-							if (i <= 236) return 45.7685 - 5 * Math.sqrt(1 - ((i - 205.057) / 30) ** 2);
-							if (i <= 470) return 10 + (0.0299709 * i - 10.8593) ** 2;
-							if (i <= 630) return 10;
-							if (i <= 750) return 10 + (0.0299709 * i - 22) ** 2;
-							return 10;
-						})
-					},
-					{
-						id: 'loop1',
-						data: Float64Array.from({ length: pointCount }, (_, i) => {
-							if (i <= 175) return NaN;
-							if (i <= 176) return 45.15;
-							if (i <= 236) return 45.15 + 5 * Math.sqrt(1 - ((i - 205.057) / 30) ** 2); // ends on value 35.15, slope -∞, index 176 to 236
-							return NaN;
-						})
-					},
-					{
-						id: 'loop2',
-						data: Float64Array.from({ length: pointCount }, (_, i) => {
-							if (i < 176) return NaN;
-							if (i < 190)
-								return 30 + Math.min(-Math.tan(((i - 172) * Math.PI) / 200 + Math.PI / 2), 15.15); // ends on value 23.442, slope -0.2018
-							if (i <= 250) return 33.442 - 0.2018 * (i - 190); // ends on value 11.334, slope -0.2018
-							return NaN;
-						})
+						id: 'carrots',
+						data: Float64Array.from(
+							{ length: pointCount },
+							(_, i) => Math.exp(-((i * i) / pointCount / 250)) * (50 + (200 * i) / pointCount)
+						)
 					}
+					// {
+					// 	id: 'trail',
+					// 	data: Float64Array.from({ length: pointCount }, (_, i) => {
+					// 		if (i <= 120) return 70 - i ** 3 / 100_000; // ends on value 42.72, slope -0.432
+					// 		if (i <= 200) return Math.exp(-0.0339623 * i + 6.61865) + 40; // ends on value 30.84, slope -0.0285
+					// 		if (i <= 236) return 45.7685 - 5 * Math.sqrt(1 - ((i - 205.057) / 30) ** 2);
+					// 		if (i <= 470) return 10 + (0.0299709 * i - 10.8593) ** 2;
+					// 		if (i <= 630) return 10;
+					// 		if (i <= 750) return 10 + (0.0299709 * i - 22) ** 2;
+					// 		return 10;
+					// 	})
+					// },
+					// {
+					// 	id: 'loop1',
+					// 	data: Float64Array.from({ length: pointCount }, (_, i) => {
+					// 		if (i <= 175) return NaN;
+					// 		if (i <= 176) return 45.15;
+					// 		if (i <= 236) return 45.15 + 5 * Math.sqrt(1 - ((i - 205.057) / 30) ** 2); // ends on value 35.15, slope -∞, index 176 to 236
+					// 		return NaN;
+					// 	})
+					// },
+					// {
+					// 	id: 'loop2',
+					// 	data: Float64Array.from({ length: pointCount }, (_, i) => {
+					// 		if (i < 176) return NaN;
+					// 		if (i < 190)
+					// 			return 30 + Math.min(-Math.tan(((i - 172) * Math.PI) / 200 + Math.PI / 2), 15.15); // ends on value 23.442, slope -0.2018
+					// 		if (i <= 250) return 33.442 - 0.2018 * (i - 190); // ends on value 11.334, slope -0.2018
+					// 		return NaN;
+					// 	})
+					// }
 				]
 			}
 		})
