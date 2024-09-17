@@ -1,43 +1,46 @@
+<script lang="ts" context="module">
+	const btns = <const>[
+		['left', '❮'],
+		['right', '❯']
+	];
+</script>
+
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { EnhancedImgAttributes } from '@sveltejs/enhanced-img';
 
 	export let images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
+	export let autoscrollInterval = 5_000;
 
 	let intervalId: number;
 	function restartInterval() {
 		clearInterval(intervalId);
-		intervalId = setInterval(() => {
-			slideCarousel('right');
-		}, 5 * 1000);
+		intervalId = setInterval(() => slideCarousel('right'), autoscrollInterval);
 	}
 
+	let observer: IntersectionObserver;
 	let carouselDiv: HTMLDivElement;
 	onMount(() => {
 		carouselDiv.scrollTo({ behavior: 'instant', left: carouselDiv.clientWidth });
 
-		const observer = new IntersectionObserver(
+		observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					if (!entry.isIntersecting) return;
+					if (!entry.isIntersecting || items.length <= 1) return;
 
-					carouselDiv.scrollTo({
-						behavior: 'instant',
-						left:
-							entry.target === entry.target.parentElement?.firstChild
-								? carouselDiv.clientWidth * (carouselDiv.children.length - 2)
-								: carouselDiv.clientWidth
-					});
+					const nextIdx =
+						entry.target === entry.target.parentElement?.firstChild ? items.length - 2 : 1;
+
+					carouselDiv.scrollTo({ behavior: 'instant', left: nextIdx * carouselDiv.clientWidth });
 				});
 			},
 			{
 				root: carouselDiv,
-				threshold: 1.0
+				threshold: 0.999
 			}
 		);
 
-		carouselDiv.querySelectorAll('.observed').forEach((d) => observer.observe(d));
-
+		resetObserver();
 		restartInterval();
 
 		return () => {
@@ -56,7 +59,16 @@
 		slideCarousel(direction);
 	}
 
-	$: items = images.length > 0 ? [images.at(-1)!, ...images, images.at(0)!] : images;
+	function resetObserver() {
+		if (!observer) return;
+
+		observer.disconnect();
+		carouselDiv.querySelectorAll('.observed').forEach((d) => observer.observe(d));
+	}
+
+	$: items = images.length > 1 ? [images.at(-1)!, ...images, images.at(0)!] : images;
+	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+	$: items, resetObserver();
 </script>
 
 <div class="carousel" bind:this={carouselDiv}>
@@ -67,32 +79,11 @@
 		</div>
 	{/each}
 </div>
-<div class="overlay">
-	<button on:click={() => buttonSlideCarousel('left')}>❮</button>
-	<button on:click={() => buttonSlideCarousel('right')}>❯</button>
+<div class="absolute inset-0 flex justify-between items-stretch group">
+	{#each btns as [direction, icon]}
+		<button
+			class="opacity-0 group-hover:opacity-30 transition w-1/5 text-white bg-black"
+			on:click={() => buttonSlideCarousel(direction)}>{icon}</button
+		>
+	{/each}
 </div>
-
-<style>
-	.overlay {
-		position: absolute;
-		inset: 0;
-
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	button {
-		transition: ease 0.2s;
-		background-color: black;
-		color: white;
-		height: 100%;
-		width: 20%;
-
-		opacity: 0;
-	}
-
-	.overlay:hover > button {
-		opacity: 0.3;
-	}
-</style>
