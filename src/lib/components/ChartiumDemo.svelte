@@ -88,12 +88,12 @@
 		hideXBubble
 		{commonXRange$}
 	>
-		<div slot="toolbar" />
+		<div slot="toolbar"></div>
 	</Chart>
 </div>
 <div class="absolute h-full w-full"></div>
 <div class="absolute h-3/4 w-3/4 right-0 bottom-0 bg-base-200 rounded-lg pr-8 shadow-sm">
 	<Chart traces={foregroundTraces} {commonXRange$} commonXRuler$={sharedRuler$} hideLegend>
-		<div slot="toolbar" />
+		<div slot="toolbar"></div>
 	</Chart>
 </div>

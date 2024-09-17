@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import { browser } from '$app/environment';
 
 	export const themeStore = writable<'light' | 'dark'>(

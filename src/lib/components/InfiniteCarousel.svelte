@@ -1,8 +1,8 @@
-<script lang="ts" context="module">
-	const btns = <const>[
+<script lang="ts" module>
+	const btns = [
 		['left', '❮'],
 		['right', '❯']
-	];
+	] as const;
 </script>
 
 <script lang="ts">
