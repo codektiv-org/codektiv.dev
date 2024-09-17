@@ -103,31 +103,28 @@
 
 	<h2 class="h2">Tým</h2>
 	<div class="grid lg:grid-cols-3 gap-6">
-		<TeamMember
-			name="Richard Ivánek"
-			nick="risai"
-			pfp="https://avatars.githubusercontent.com/u/7413196?v=4"
-		>
+		<TeamMember name="Richard Ivánek" nick="risai">
+			<svelte:fragment slot="avatar">
+				<enhanced:img src="/static/risai.jpeg?w=128" alt="Richard Ivánek" />
+			</svelte:fragment>
 			Fullstack developer, <br />
 			milovník zajímavých problémů, <br />
 			řešení, technologií a vědy, <br />
 			<small class="opacity-90">a Pentel EnerGel 0.7mm Metal Tip modré.</small>
 		</TeamMember>
-		<TeamMember
-			name="Michal Grňo"
-			nick="csha"
-			pfp="https://avatars.githubusercontent.com/u/1671665?v=4"
-		>
+		<TeamMember name="Michal Grňo" nick="csha">
+			<svelte:fragment slot="avatar">
+				<enhanced:img src="/static/csha.jpeg?w=128" alt="Michal Grňo" />
+			</svelte:fragment>
 			UI & UX designer, <br />
 			fanoušek permakultury, <br />
 			humanitních věd, <br />
 			a anarchistických zínů.
 		</TeamMember>
-		<TeamMember
-			name="Ondra Janoška"
-			nick="quacken"
-			pfp="https://avatars.githubusercontent.com/u/78506690?v=4"
-		>
+		<TeamMember name="Ondra Janoška" nick="quacken">
+			<svelte:fragment slot="avatar">
+				<enhanced:img src="/static/quacken.jpeg?w=128" alt="Ondra Janoška" />
+			</svelte:fragment>
 			Cat dad & a silly guy
 		</TeamMember>
 	</div>
