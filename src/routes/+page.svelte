@@ -120,7 +120,10 @@
 			a anarchistických zínů.
 		</TeamMember>
 		<TeamMember name="Ondra Janoška" nick="quacken" pfp={quackenPfp}>
-			Cat dad & a silly guy
+			Frontend developer, <br />
+			srdcem astrofyzik, <br />
+			táta jednookého kocoura <br />
+			a milovník kafe.
 		</TeamMember>
 	</div>
 </main>
