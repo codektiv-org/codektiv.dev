@@ -49,7 +49,7 @@
 				<textarea name="message" class="textarea textarea-bordered h-24 prose" placeholder="..."
 				></textarea>
 			</label>
-			<button type="submit" class="btn mt-4 mr-auto">Odeslat</button>
+			<button type="submit" class="btn mt-4 ml-auto">Odeslat</button>
 		</form>
 	</div>
 	<form class="modal-backdrop" method="dialog">
