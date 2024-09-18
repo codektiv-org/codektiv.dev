@@ -10,7 +10,7 @@
 	let observer: IntersectionObserver;
 
 	/** Scroll to the image with the provided (zero-based) index. */
-	function slideTo(index: number, behavior: ScrollOptions['behavior'] = 'smooth') {
+	function slideTo(index: number, behavior: ScrollBehavior = 'smooth') {
 		// There is a fake “−1th” image which is the same as the last image
 		// That's why we have to add one to the index
 		carouselDiv.scrollTo({ left: (index + 1) * carouselDiv.clientWidth, behavior });
@@ -18,7 +18,7 @@
 	}
 
 	/** Scroll by `indexDelta` images. To move forward or backward by one, use `+1` or `-1` respectively.  */
-	function slideBy(indexDelta: number, behavior: ScrollOptions['behavior'] = 'smooth') {
+	function slideBy(indexDelta: number, behavior: ScrollBehavior = 'smooth') {
 		carouselDiv.scrollBy({ left: indexDelta * carouselDiv.clientWidth, behavior });
 		restartInterval();
 	}
