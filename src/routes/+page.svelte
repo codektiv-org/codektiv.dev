@@ -14,7 +14,7 @@
 
 <main class="mx-auto mb-4 mt-20 max-w-[80rem] px-8">
 	<h1 class="flex flex-row justify-center mb-5">
-		<span class="text-8xl">codektiv</span>
+		<span class="text-7xl md:text-8xl">codektiv</span>
 		<span class="inline-block h-full">
 			<ThemeSwitcher />
 		</span>
