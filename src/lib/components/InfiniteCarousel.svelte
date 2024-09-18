@@ -69,21 +69,25 @@
 	$: items, resetObserver();
 </script>
 
-<div class="carousel" bind:this={carouselDiv}>
-	{#each items as { src, alt, title }, i}
-		{@const observed = i === 0 || i === items.length - 1}
-		<div class="carousel-item w-full" class:observed class:first={i === 0}>
-			<enhanced:img {src} {title} {alt} />
-		</div>
-	{/each}
-</div>
-<div class="absolute inset-0 flex justify-between items-stretch group">
+<div class="relative group">
+	<div
+		class="carousel flex relative group h-full"
+		bind:this={carouselDiv}
+		on:scroll={restartInterval}
+	>
+		{#each items as { src, alt, title }, i}
+			{@const observed = i === 0 || i === items.length - 1}
+			<div class="carousel-item w-full" class:observed class:first={i === 0}>
+				<enhanced:img {src} {title} {alt} />
+			</div>
+		{/each}
+	</div>
 	<button
-		class="opacity-0 group-hover:opacity-30 transition w-1/5 text-white bg-black"
+		class="absolute left-1 top-1/2 rounded-full p-1 opacity-0 group-hover:opacity-30 transition text-white bg-black"
 		on:click={() => slideBy(-1)}><ChevronLeft /></button
 	>
 	<button
-		class="opacity-0 group-hover:opacity-30 transition w-1/5 text-white bg-black"
+		class="absolute right-1 top-1/2 rounded-full p-1 opacity-0 group-hover:opacity-30 transition text-white bg-black"
 		on:click={() => slideBy(+1)}><ChevronRight /></button
 	>
 </div>
