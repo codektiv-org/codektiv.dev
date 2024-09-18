@@ -46,7 +46,7 @@
 						id: 'carrots',
 						data: Float64Array.from(
 							{ length: pointCount },
-							(_, i) => Math.exp(-((i * i) / pointCount / 250)) * (50 + (200 * i) / pointCount)
+							(_, i) => Math.exp(-((5 * (i * i)) / pointCount / pointCount)) * (25 + i)
 						)
 					}
 				]
