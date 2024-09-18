@@ -19,6 +19,7 @@
 		"dayjs": "^1.11.13",
 		"libchartium": "^0.35.2",
 		"lucide-svelte": "^0.441.0",
+		"svelte-gestures": "^5.0.4",
 		"vite-plugin-wasm": "^3.3.0"
 	},
 	"devDependencies": {

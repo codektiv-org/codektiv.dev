@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import type { EnhancedImgAttributes } from '@sveltejs/enhanced-img';
 	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
+	import { swipe } from 'svelte-gestures';
 
 	export let images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
 	export let autoscrollInterval = 5_000;
@@ -69,11 +70,18 @@
 	$: items, resetObserver();
 </script>
 
-<div class="relative group">
+<div
+	class="relative group"
+	use:swipe
+	on:swipe={(e) => {
+		if (e.detail.direction === 'left') slideBy(+1);
+		if (e.detail.direction === 'right') slideBy(-1);
+	}}
+>
 	<div
 		class="carousel flex relative group h-full"
 		bind:this={carouselDiv}
-		on:scroll={restartInterval}
+		on:touchmove|preventDefault
 	>
 		{#each items as { src, alt, title }, i}
 			{@const observed = i === 0 || i === items.length - 1}
@@ -83,11 +91,11 @@
 		{/each}
 	</div>
 	<button
-		class="absolute left-1 top-1/2 rounded-full p-1 opacity-0 group-hover:opacity-30 transition text-white bg-black"
+		class="absolute left-1 top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black"
 		on:click={() => slideBy(-1)}><ChevronLeft /></button
 	>
 	<button
-		class="absolute right-1 top-1/2 rounded-full p-1 opacity-0 group-hover:opacity-30 transition text-white bg-black"
+		class="absolute right-1 top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black"
 		on:click={() => slideBy(+1)}><ChevronRight /></button
 	>
 </div>
