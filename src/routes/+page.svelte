@@ -20,18 +20,21 @@
 			<ThemeSwitcher />
 		</span>
 	</h1>
-	<p class="text-justify max-w-[40rem] mx-auto">
-		Jsme mladý kolektiv absolventů Matematicko-fyzikální fakulty Univerzity Karlovy s vášní pro
-		programování. Jako tým pracujeme již několik let a&nbsp;klademe důraz na kvalitní kód
-		s&nbsp;extrémně nízkou tolerancí pro technologický dluh. Umíme používat současné
-		i&nbsp;bleeding-edge technologie, ale jejich použití samozřejmě přizpůsobujeme požadavkům daného
-		projektu. Rádi prototypujeme řešení specifických problémů tak, aby si klient byl schopen daná
-		řešení vyzkoušet a říct, které se mu líbí. Stejně tak rádi poskytneme náš názor na různá řešení
-		na základě našich předchozích zkušeností. A&nbsp;hlavně: dá se s námi domluvit&nbsp;😉.
+	<div class="max-w-[40rem] mx-auto">
+		<p class="text-justify">
+			Jsme mladý kolektiv absolventů Matematicko-fyzikální fakulty Univerzity Karlovy s vášní pro
+			programování. Jako tým pracujeme již několik let a&nbsp;klademe důraz na kvalitní kód
+			s&nbsp;extrémně nízkou tolerancí pro technologický dluh. Umíme používat současné
+			i&nbsp;bleeding-edge technologie, ale jejich použití samozřejmě přizpůsobujeme požadavkům
+			daného projektu. Rádi prototypujeme řešení specifických problémů tak, aby si klient byl
+			schopen daná řešení vyzkoušet a říct, které se mu líbí. Stejně tak rádi poskytneme náš názor
+			na různá řešení na základě našich předchozích zkušeností. A&nbsp;hlavně: dá se s námi
+			domluvit&nbsp;😉.
 
-		<!-- <Counter /> -->
+			<!-- <Counter /> -->
+		</p>
 		<Contact />
-	</p>
+	</div>
 	<h2 class="h2">Zkušenosti</h2>
 	<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-8">
 		<card class="card">
