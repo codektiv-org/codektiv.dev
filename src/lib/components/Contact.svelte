@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { Mails } from 'lucide-svelte';
 	let modal: HTMLDialogElement;
 </script>
@@ -20,7 +21,16 @@
 		</form>
 
 		<h3 class="text-lg font-bold">Kontaktujte nás!</h3>
-		<form>
+		<form
+			method="post"
+			use:enhance={() =>
+				async ({ result }) => {
+					console.log(result);
+
+					modal.close(); // show some nice animation
+				}}
+			action="?/contact"
+		>
 			<label class="form-control w-full">
 				<div class="label">
 					<span class="label-text">Váš email</span>
@@ -28,6 +38,7 @@
 				<input
 					type="email"
 					placeholder="example@mail.com"
+					name="email"
 					class="input input-bordered w-full prose"
 				/>
 			</label>
@@ -35,7 +46,8 @@
 				<div class="label">
 					<span class="label-text">Vaše zpráva</span>
 				</div>
-				<textarea class="textarea textarea-bordered h-24 prose" placeholder="..."></textarea>
+				<textarea name="message" class="textarea textarea-bordered h-24 prose" placeholder="..."
+				></textarea>
 			</label>
 			<button type="submit" class="btn mt-4">Odeslat</button>
 		</form>
