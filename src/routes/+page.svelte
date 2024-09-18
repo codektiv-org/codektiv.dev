@@ -8,6 +8,7 @@
 	import risaiPfp from '../pfps/risai.jpeg?w=128&enhanced';
 	import cshaPfp from '../pfps/csha.jpeg?w=128&enhanced';
 	import quackenPfp from '../pfps/quacken.jpeg?w=128&enhanced';
+	import Contact from '$lib/components/Contact.svelte';
 
 	const ChartiumDemoPromise = import('$lib/components/ChartiumDemo.svelte').then((d) => d.default);
 </script>
@@ -28,7 +29,8 @@
 		řešení vyzkoušet a říct, které se mu líbí. Stejně tak rádi poskytneme náš názor na různá řešení
 		na základě našich předchozích zkušeností. A&nbsp;hlavně: dá se s námi domluvit&nbsp;😉.
 
-		<Counter />
+		<!-- <Counter /> -->
+		<Contact />
 	</p>
 	<h2 class="h2">Zkušenosti</h2>
 	<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-8">
