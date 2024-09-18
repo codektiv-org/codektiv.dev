@@ -6,7 +6,9 @@
 	import Image3 from '$lib/fair-3.png?w=412&enhanced';
 </script>
 
-<div class="mockup-phone m-0 lg:-order-1 w-[284px] place-self-center lg:place-self-end">
+<div
+	class="mockup-phone m-0 lg:-order-1 w-[250px] sm:w-[284px] place-self-center lg:place-self-end"
+>
 	<div class="camera"></div>
 	<div class="display">
 		<div class="artboard-demo relative">
