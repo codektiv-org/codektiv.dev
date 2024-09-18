@@ -1,27 +1,36 @@
-<script lang="ts" module>
-	const btns = [
-		['left', '❮'],
-		['right', '❯']
-	] as const;
-</script>
-
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { EnhancedImgAttributes } from '@sveltejs/enhanced-img';
+	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
 	export let images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
 	export let autoscrollInterval = 5_000;
 
+	let carouselDiv: HTMLDivElement;
+	let observer: IntersectionObserver;
+
+	/** Scroll to the image with the provided (zero-based) index. */
+	function slideTo(index: number, behavior: ScrollOptions['behavior'] = 'smooth') {
+		// There is a fake “−1th” image which is the same as the last image
+		// That's why we have to add one to the index
+		carouselDiv.scrollTo({ left: (index + 1) * carouselDiv.clientWidth, behavior });
+		restartInterval();
+	}
+
+	/** Scroll by `indexDelta` images. To move forward or backward by one, use `+1` or `-1` respectively.  */
+	function slideBy(indexDelta: number, behavior: ScrollOptions['behavior'] = 'smooth') {
+		carouselDiv.scrollBy({ left: indexDelta * carouselDiv.clientWidth, behavior });
+		restartInterval();
+	}
+
 	let intervalId: number;
 	function restartInterval() {
 		clearInterval(intervalId);
-		intervalId = setInterval(() => slideCarousel('right'), autoscrollInterval);
+		intervalId = setInterval(() => slideBy(1), autoscrollInterval);
 	}
 
-	let observer: IntersectionObserver;
-	let carouselDiv: HTMLDivElement;
 	onMount(() => {
-		carouselDiv.scrollTo({ behavior: 'instant', left: carouselDiv.clientWidth });
+		slideTo(0, 'instant'); // instantly snap to the first image
 
 		observer = new IntersectionObserver(
 			(entries) => {
@@ -48,16 +57,6 @@
 		};
 	});
 
-	function slideCarousel(direction: 'left' | 'right') {
-		const multiplier = direction === 'left' ? -1 : 1;
-		carouselDiv.scrollBy({ left: multiplier });
-	}
-
-	function buttonSlideCarousel(direction: 'left' | 'right') {
-		restartInterval();
-		slideCarousel(direction);
-	}
-
 	function resetObserver() {
 		if (!observer) return;
 
@@ -79,10 +78,12 @@
 	{/each}
 </div>
 <div class="absolute inset-0 flex justify-between items-stretch group">
-	{#each btns as [direction, icon]}
-		<button
-			class="opacity-0 group-hover:opacity-30 transition w-1/5 text-white bg-black"
-			on:click={() => buttonSlideCarousel(direction)}>{icon}</button
-		>
-	{/each}
+	<button
+		class="opacity-0 group-hover:opacity-30 transition w-1/5 text-white bg-black"
+		on:click={() => slideBy(-1)}><ChevronLeft /></button
+	>
+	<button
+		class="opacity-0 group-hover:opacity-30 transition w-1/5 text-white bg-black"
+		on:click={() => slideBy(+1)}><ChevronRight /></button
+	>
 </div>
