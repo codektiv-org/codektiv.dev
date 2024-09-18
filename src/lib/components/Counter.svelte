@@ -3,11 +3,11 @@
 	import { elasticOut } from 'svelte/easing';
 	import { RefreshCcw } from 'lucide-svelte';
 
-	let count = 0;
+	let count = $state(0);
 </script>
 
 <span class="indicator block my-5 ml-auto">
-	<button class="btn btn-neutral" tabindex="0" on:click={() => (count += 1)}>
+	<button class="btn btn-neutral" tabindex="0" onclick={() => (count += 1)}>
 		Kliknuto {count}krát!
 	</button>
 
@@ -22,8 +22,8 @@
         "
 				tabindex="0"
 				aria-label="Resetovat číselník"
-				on:click={() => (count = 0)}
-				on:keypress={(e) => ['Enter', ' '].includes(e.key) && (count = 0)}
+				onclick={() => (count = 0)}
+				onkeypress={(e) => ['Enter', ' '].includes(e.key) && (count = 0)}
 				transition:scale={{ easing: elasticOut }}
 			>
 				<RefreshCcw size={20} />

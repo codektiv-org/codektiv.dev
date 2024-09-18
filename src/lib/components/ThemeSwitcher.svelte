@@ -16,7 +16,7 @@
 	import { Moon, Sun } from 'lucide-svelte';
 	import { writable } from 'svelte/store';
 
-	$: label = $themeStore === 'dark' ? 'světlý režim' : 'tmavý režim';
+	let label = $derived($themeStore === 'dark' ? 'světlý režim' : 'tmavý režim');
 </script>
 
 <label class="swap swap-rotate" title="Přepnout na {label}">
@@ -26,7 +26,7 @@
 		type="checkbox"
 		class="theme-controller rounded-full"
 		checked={$themeStore === 'dark'}
-		on:change={() => themeStore.set($themeStore === 'dark' ? 'light' : 'dark')}
+		onchange={() => themeStore.set($themeStore === 'dark' ? 'light' : 'dark')}
 	/>
 	<Sun class="swap-off fill-current" />
 	<Moon class="swap-on fill-current" />

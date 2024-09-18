@@ -4,8 +4,10 @@
 	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 	import { swipe } from 'svelte-gestures';
 
-	export let images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
-	export let autoscrollInterval = 5_000;
+	const { images, autoscrollInterval = 5_000 } = $props<{
+		images: { src: EnhancedImgAttributes['src']; alt: string; title: string }[];
+		autoscrollInterval?: number;
+	}>();
 
 	let carouselDiv: HTMLDivElement;
 	let observer: IntersectionObserver;
@@ -65,9 +67,11 @@
 		carouselDiv.querySelectorAll('.observed').forEach((d) => observer.observe(d));
 	}
 
-	$: items = images.length > 1 ? [images.at(-1)!, ...images, images.at(0)!] : images;
-	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-	$: items, resetObserver();
+	let items = $derived(images.length > 1 ? [images.at(-1)!, ...images, images.at(0)!] : images);
+
+	$effect(() => {
+		if (items) resetObserver();
+	});
 </script>
 
 <div class="relative group">
@@ -75,7 +79,7 @@
 		class="carousel flex relative group h-full"
 		bind:this={carouselDiv}
 		use:swipe={{ touchAction: 'pan-y' }}
-		on:swipe={(e) => {
+		onswipe={(e) => {
 			if (e.detail.direction === 'left') slideBy(+1);
 			if (e.detail.direction === 'right') slideBy(-1);
 		}}
@@ -89,10 +93,10 @@
 	</div>
 	<button
 		class="absolute left-1 top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black"
-		on:click={() => slideBy(-1)}><ChevronLeft /></button
+		onclick={() => slideBy(-1)}><ChevronLeft /></button
 	>
 	<button
 		class="absolute right-1 top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black"
-		on:click={() => slideBy(+1)}><ChevronRight /></button
+		onclick={() => slideBy(+1)}><ChevronRight /></button
 	>
 </div>

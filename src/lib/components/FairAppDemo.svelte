@@ -1,8 +1,8 @@
 <script lang="ts">
 	import InfiniteCarousel from './InfiniteCarousel.svelte';
-	import Image1 from '$lib/fair-1.png?w=412&enhanced';
-	import Image2 from '$lib/fair-2.png?w=412&enhanced'; //src="/static/fair-2.png?w=412"
 
+	import Image1 from '$lib/fair-1.png?w=412&enhanced';
+	import Image2 from '$lib/fair-2.png?w=412&enhanced';
 	import Image3 from '$lib/fair-3.png?w=412&enhanced';
 </script>
 

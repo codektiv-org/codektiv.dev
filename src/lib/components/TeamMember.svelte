@@ -1,9 +1,18 @@
 <script lang="ts">
 	import type { EnhancedImgAttributes } from '@sveltejs/enhanced-img';
+	import type { Snippet } from 'svelte';
 
-	export let name: string;
-	export let nick: string | undefined = undefined;
-	export let pfp: EnhancedImgAttributes['src'];
+	const {
+		name,
+		nick = undefined,
+		pfp,
+		children
+	} = $props<{
+		name: string;
+		nick?: string;
+		pfp: EnhancedImgAttributes['src'];
+		children?: Snippet;
+	}>();
 </script>
 
 <card class="card">
@@ -21,6 +30,6 @@
 		</div>
 	</div>
 	<div class="card-body prose">
-		<slot />
+		{@render children?.()}
 	</div>
 </card>
