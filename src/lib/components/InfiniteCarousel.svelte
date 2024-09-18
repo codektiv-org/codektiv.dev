@@ -28,8 +28,7 @@
 				entries.forEach((entry) => {
 					if (!entry.isIntersecting || items.length <= 1) return;
 
-					const nextIdx =
-						entry.target === entry.target.parentElement?.firstChild ? items.length - 2 : 1;
+					const nextIdx = entry.target.classList.contains('first') ? items.length - 2 : 1;
 
 					carouselDiv.scrollTo({ behavior: 'instant', left: nextIdx * carouselDiv.clientWidth });
 				});
@@ -74,7 +73,7 @@
 <div class="carousel" bind:this={carouselDiv}>
 	{#each items as { src, alt, title }, i}
 		{@const observed = i === 0 || i === items.length - 1}
-		<div class="carousel-item w-full" class:observed>
+		<div class="carousel-item w-full" class:observed class:first={i === 0}>
 			<enhanced:img {src} {title} {alt} />
 		</div>
 	{/each}
