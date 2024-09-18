@@ -24,9 +24,9 @@
 		<form
 			method="post"
 			use:enhance={() =>
-				async ({ result }) => {
+				async ({ result, formElement }) => {
 					console.log(result);
-
+					formElement.reset();
 					modal.close(); // show some nice animation
 				}}
 			action="?/contact"

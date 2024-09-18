@@ -19,6 +19,7 @@
 		"dayjs": "^1.11.13",
 		"libchartium": "^0.35.2",
 		"lucide-svelte": "^0.441.0",
+		"resend": "^4.0.0",
 		"svelte-gestures": "^5.0.4",
 		"vite-plugin-wasm": "^3.3.0"
 	},
@@ -28,6 +29,7 @@
 		"@sveltejs/kit": "^2.5.28",
 		"@sveltejs/vite-plugin-svelte": "4.0.0-next.7",
 		"@types/eslint": "^9.6.1",
+		"@types/node": "^22.5.5",
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^4.12.10",
 		"eslint": "^9.10.0",
