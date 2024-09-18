@@ -11,7 +11,7 @@
 >
 	<div class="camera"></div>
 	<div class="display">
-		<div class="artboard-demo relative">
+		<div class="artboard-demo">
 			<InfiniteCarousel
 				images={[
 					{

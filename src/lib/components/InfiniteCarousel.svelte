@@ -70,18 +70,15 @@
 	$: items, resetObserver();
 </script>
 
-<div
-	class="relative group"
-	use:swipe
-	on:swipe={(e) => {
-		if (e.detail.direction === 'left') slideBy(+1);
-		if (e.detail.direction === 'right') slideBy(-1);
-	}}
->
+<div class="relative group">
 	<div
 		class="carousel flex relative group h-full"
 		bind:this={carouselDiv}
-		on:touchmove|preventDefault
+		use:swipe={{ touchAction: 'pan-y' }}
+		on:swipe={(e) => {
+			if (e.detail.direction === 'left') slideBy(+1);
+			if (e.detail.direction === 'right') slideBy(-1);
+		}}
 	>
 		{#each items as { src, alt, title }, i}
 			{@const observed = i === 0 || i === items.length - 1}
