@@ -46,7 +46,13 @@
 		</card>
 		<div class="relative h-96">
 			{#if browser}
-				{#await ChartiumDemoPromise then ChartiumDemo}
+				{#await ChartiumDemoPromise}
+					<div class="skeleton absolute h-3/4 w-3/4 left-0 top-0 blur-[1px] shadow-sm"></div>
+
+					<div
+						class="skeleton absolute h-3/4 w-3/4 right-0 bottom-0 bg-base-200 rounded-lg pr-8 shadow-sm"
+					></div>
+				{:then ChartiumDemo}
 					<ChartiumDemo />
 				{/await}
 			{/if}
