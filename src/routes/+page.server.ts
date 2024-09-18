@@ -1,7 +1,9 @@
 import type { Actions } from '@sveltejs/kit';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_TOKEN!);
+const token = process.env.RESEND_TOKEN;
+if (!token) console.warn('No RESEND_TOKEN provided');
+const resend = new Resend(token ?? 're_1234567890');
 export const actions = {
 	contact: async ({ request }) => {
 		const data = await request.formData();
