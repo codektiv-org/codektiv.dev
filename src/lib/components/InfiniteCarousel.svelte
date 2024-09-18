@@ -82,8 +82,8 @@
 	>
 		{#each items as { src, alt, title }, i}
 			{@const observed = i === 0 || i === items.length - 1}
-			<div class="carousel-item w-full" class:observed class:first={i === 0}>
-				<enhanced:img {src} {title} {alt} />
+			<div class="carousel-item w-full select-none" class:observed class:first={i === 0}>
+				<enhanced:img {src} {title} {alt} draggable="false" />
 			</div>
 		{/each}
 	</div>
