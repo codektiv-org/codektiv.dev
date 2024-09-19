@@ -19,8 +19,8 @@
 	>
 </span>
 <dialog bind:this={modal} class="modal">
-	<div class="modal-box stack place-items-stretch">
-		<div class="!opacity-0 pointer-events-none" class:!opacity-100={sent}>
+	<div class="modal-box stack">
+		<div class="place-self-stretch !opacity-0 pointer-events-none" class:!opacity-100={sent}>
 			{#await LottiePromise then Lottie}
 				<Lottie
 					src="/sent.lottie"
