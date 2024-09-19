@@ -1,8 +1,9 @@
 import { error, type Actions } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 import { Resend } from 'resend';
 import { yeet } from '@typek/typek';
 
-const token = process.env.RESEND_TOKEN ?? yeet('Missing RESEND_TOKEN environment variable');
+const token = env.RESEND_TOKEN ?? yeet('Missing RESEND_TOKEN environment variable');
 
 const resend = new Resend(token);
 export const actions = {

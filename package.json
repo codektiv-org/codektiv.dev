@@ -13,6 +13,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@lottiefiles/dotlottie-svelte": "^0.3.19",
 		"@tailwindcss/typography": "^0.5.15",
 		"@typek/signalhead": "npm:@jsr/typek__signalhead@^0.0.39",
 		"@typek/typek": "npm:@jsr/typek__typek@^0.6.7",
