@@ -6,6 +6,15 @@
 	let sent = false;
 	let modal: HTMLDialogElement;
 	let lottie: import('@lottiefiles/dotlottie-svelte').DotLottie;
+
+	function playLottie() {
+		if (lottie) {
+			sent = true;
+			lottie?.play();
+		} else {
+			modal.close();
+		}
+	}
 </script>
 
 <!-- 
@@ -19,8 +28,11 @@
 	>
 </span>
 <dialog bind:this={modal} class="modal">
-	<div class="modal-box stack">
-		<div class="place-self-stretch !opacity-0 pointer-events-none" class:!opacity-100={sent}>
+	<div class="modal-box relative">
+		<div
+			class="place-self-stretch !opacity-0 pointer-events-none absolute inset-0"
+			class:!opacity-100={sent}
+		>
 			{#await LottiePromise then Lottie}
 				<Lottie
 					src="/sent.lottie"
@@ -36,7 +48,7 @@
 				/>
 			{/await}
 		</div>
-		<div class:!opacity-0={sent} class:pointer-events-none={sent}>
+		<div class:!opacity-0={sent} class:pointer-events-none={sent} class="place-self-stretch">
 			<form method="dialog">
 				<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 			</form>
@@ -46,13 +58,9 @@
 				method="post"
 				use:enhance={() =>
 					async ({ result, formElement }) => {
+						if (result.type === 'error') return alert(result.error.message);
 						formElement.reset();
-						if (lottie) {
-							sent = true;
-							lottie?.play();
-						} else {
-							modal.close();
-						}
+						playLottie();
 					}}
 				action="?/contact"
 			>
@@ -64,6 +72,7 @@
 						type="email"
 						placeholder="example@mail.com"
 						name="email"
+						required
 						class="input input-bordered w-full prose"
 					/>
 				</label>
@@ -71,10 +80,16 @@
 					<div class="label">
 						<span class="label-text">Vaše zpráva</span>
 					</div>
-					<textarea name="message" class="textarea textarea-bordered h-24 prose" placeholder="..."
+					<textarea
+						name="message"
+						class="textarea textarea-bordered h-24 prose"
+						placeholder="..."
+						required
 					></textarea>
 				</label>
-				<button type="submit" class="btn mt-4 ml-auto">Odeslat</button>
+				<div class="flex w-full justify-end">
+					<button type="submit" class="btn mt-4">Odeslat</button>
+				</div>
 			</form>
 		</div>
 	</div>

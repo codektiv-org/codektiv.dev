@@ -1,4 +1,4 @@
-import { error, type Actions } from '@sveltejs/kit';
+import { type Actions, error } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import { Resend } from 'resend';
 import { yeet } from '@typek/typek';
@@ -10,8 +10,11 @@ export const actions = {
 	contact: async ({ request }) => {
 		const data = await request.formData();
 
-		const email = (data.get('email') ?? error(400, 'Failed to specify email')).toString();
-		const message = (data.get('message') ?? error(400, 'Failed to specify message')).toString();
+		if (data.get('email') === null) return error(400, 'Nebyl vyplněn email');
+		if (data.get('message') === null) return error(400, 'Nebyla vyplněna zpráva');
+
+		const email = data.get('email')!.toString();
+		const message = data.get('message')!.toString();
 
 		const err = (
 			await resend.emails.send({
@@ -23,6 +26,12 @@ export const actions = {
 			})
 		).error;
 
-		if (err) throw error(500, 'Sending the e-mail failed.');
+		if (err)
+			return error(
+				500,
+				'Nepodařilo se odeslat zprávu. Zkuste to prosím znovu nebo nám napište přímo na info@codektiv.dev.'
+			);
+
+		return { success: true };
 	}
 } satisfies Actions;
