@@ -36,7 +36,7 @@
 				/>
 			{/await}
 		</div>
-		<div class:!opacity-0={sent}>
+		<div class:!opacity-0={sent} class:pointer-events-none={sent}>
 			<form method="dialog">
 				<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 			</form>
