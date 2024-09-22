@@ -1,25 +1,18 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
 	import TeamMember from '$lib/components/TeamMember.svelte';
-	import Counter from '$lib/components/Counter.svelte';
 	import FairAppDemo from '$lib/components/FairAppDemo.svelte';
 
 	import risaiPfp from '../pfps/risai.jpeg?w=128&enhanced';
 	import cshaPfp from '../pfps/csha.jpeg?w=128&enhanced';
 	import quackenPfp from '../pfps/quacken.jpeg?w=128&enhanced';
 	import Contact from '$lib/components/Contact.svelte';
+	import Title from '$lib/components/Title.svelte';
 
 	const ChartiumDemoPromise = import('$lib/components/ChartiumDemo.svelte').then((d) => d.default);
 </script>
 
 <main class="mx-auto mb-4 mt-20 max-w-[80rem] px-8">
-	<h1 class="flex flex-row justify-center mb-5">
-		<span class="text-7xl md:text-8xl">codektiv</span>
-		<span class="inline-block h-full">
-			<ThemeSwitcher />
-		</span>
-	</h1>
+	<Title />
 	<div class="max-w-[40rem] mx-auto">
 		<p class="text-justify">
 			Jsme mladý kolektiv absolventů Matematicko-fyzikální fakulty Univerzity Karlovy s vášní pro
@@ -138,12 +131,6 @@
 </main>
 
 <style lang="postcss">
-	h1 {
-		font-family: 'CMU', cursive, serif;
-		font-weight: normal;
-		font-style: italic;
-	}
-
 	.card {
 		@apply lg:mt-8;
 	}
