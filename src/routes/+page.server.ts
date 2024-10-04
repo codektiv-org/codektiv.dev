@@ -15,7 +15,6 @@ export const actions = {
 
 		const email = data.get('email')!.toString();
 		const message = data.get('message')!.toString();
-
 		const err = (
 			await resend.emails.send({
 				subject: 'Message from contact form',
@@ -25,13 +24,11 @@ export const actions = {
 				text: `From: ${email}\nMessage: ${message}`
 			})
 		).error;
-
 		if (err)
 			return error(
 				500,
 				'Nepodařilo se odeslat zprávu. Zkuste to prosím znovu nebo nám napište přímo na info@codektiv.dev.'
 			);
-
 		return { success: true };
 	}
 } satisfies Actions;

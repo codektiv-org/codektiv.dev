@@ -15,6 +15,15 @@
 			modal.close();
 		}
 	}
+
+	let emailInput: HTMLInputElement;
+
+	const onError = (msg: string) => {
+		alert(msg);
+		emailInput.value = '';
+	};
+
+	let showLoading = false;
 </script>
 
 <!-- 
@@ -29,6 +38,11 @@
 </span>
 <dialog bind:this={modal} class="modal">
 	<div class="modal-box relative">
+		{#if showLoading}
+			<div class="w-full h-full absolute flex items-center justify-center inset-0 backdrop-blur-sm">
+				<span class="loading loading-dots"></span>
+			</div>
+		{/if}
 		<div
 			class="place-self-stretch !opacity-0 pointer-events-none absolute inset-0"
 			class:!opacity-100={sent}
@@ -56,12 +70,15 @@
 			<h3 class="text-lg font-bold">Kontaktujte nás!</h3>
 			<form
 				method="post"
-				use:enhance={() =>
-					async ({ result, formElement }) => {
-						if (result.type === 'error') return alert(result.error.message);
+				use:enhance={() => {
+					showLoading = true;
+					return async ({ result, formElement }) => {
+						showLoading = false;
+						if (result.type === 'error') return onError(result.error.message);
 						formElement.reset();
 						playLottie();
-					}}
+					};
+				}}
 				action="?/contact"
 			>
 				<label class="form-control w-full">
@@ -69,6 +86,7 @@
 						<span class="label-text">Váš email</span>
 					</div>
 					<input
+						bind:this={emailInput}
 						type="email"
 						placeholder="example@mail.com"
 						name="email"
