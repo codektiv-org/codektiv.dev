@@ -84,7 +84,7 @@
 		</div>
 		<div class="mockup-window bg-base-300 border border-gray-600">
 			<enhanced:img
-				src="/static/koronainfo.png"
+				src="/static/koronainfo.png?w=900;600"
 				title="Snímek obrazovky z webu koronainfo.cz z června 2021"
 				alt="
 				Snímek obrazovky z webu koronainfo.cz z června 2021. Na obrazovce je vidět dashboard
