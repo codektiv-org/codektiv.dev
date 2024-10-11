@@ -26,7 +26,7 @@
 	let showLoading = false;
 </script>
 
-<!-- 
+<!--
 	<a href="mailto:info@codektiv.dev" class="btn btn-neutral" tabindex="0"
 		><Mails />Kontaktujte nás!</a
 	>
@@ -67,7 +67,7 @@
 				<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 			</form>
 
-			<h3 class="text-lg font-bold">Kontaktujte nás!</h3>
+			<h2 class="text-lg font-bold">Kontaktujte nás!</h2>
 			<form
 				method="post"
 				use:enhance={() => {
@@ -112,6 +112,6 @@
 		</div>
 	</div>
 	<form class="modal-backdrop" method="dialog">
-		<button class="modal-backdrop cursor-default"></button>
+		<button class="modal-backdrop cursor-default" aria-label="Zavřít modal"></button>
 	</form>
 </dialog>

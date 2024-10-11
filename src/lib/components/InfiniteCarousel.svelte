@@ -68,6 +68,9 @@
 	$: items = images.length > 1 ? [images.at(-1)!, ...images, images.at(0)!] : images;
 	// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 	$: items, resetObserver();
+
+	const btnClass =
+		'absolute top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black';
 </script>
 
 <div class="relative group">
@@ -87,12 +90,10 @@
 			</div>
 		{/each}
 	</div>
-	<button
-		class="absolute left-1 top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black"
-		on:click={() => slideBy(-1)}><ChevronLeft /></button
+	<button class="{btnClass} left-1" aria-label="Otoč carousel vlevo" on:click={() => slideBy(-1)}
+		><ChevronLeft /></button
 	>
-	<button
-		class="absolute right-1 top-1/2 rounded-full p-1 opacity-5 group-hover:opacity-30 transition text-white bg-black"
-		on:click={() => slideBy(+1)}><ChevronRight /></button
+	<button class="{btnClass} right-1" aria-label="Otoč carousel vpravo" on:click={() => slideBy(+1)}
+		><ChevronRight /></button
 	>
 </div>
