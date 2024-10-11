@@ -3,9 +3,15 @@ import { env } from '$env/dynamic/private';
 import { Resend } from 'resend';
 import { yeet } from '@typek/typek';
 
-const token = env.RESEND_TOKEN ?? yeet('Missing RESEND_TOKEN environment variable');
+let _resend: Resend;
+const resend = () => {
+	if (_resend) return _resend;
 
-const resend = new Resend(token);
+	const token = env.RESEND_TOKEN ?? yeet('Missing RESEND_TOKEN environment variable');
+
+	return (_resend = new Resend(token));
+};
+
 export const actions = {
 	contact: async ({ request }) => {
 		const data = await request.formData();
@@ -16,7 +22,7 @@ export const actions = {
 		const email = data.get('email')!.toString();
 		const message = data.get('message')!.toString();
 		const err = (
-			await resend.emails.send({
+			await resend().emails.send({
 				subject: 'Message from contact form',
 				from: 'info@codektiv.dev',
 				to: 'info@codektiv.dev',
