@@ -24,7 +24,7 @@
 		restartInterval();
 	}
 
-	let intervalId: number;
+	let intervalId: NodeJS.Timeout;
 	function restartInterval() {
 		clearInterval(intervalId);
 		intervalId = setInterval(() => slideBy(1), autoscrollInterval);
