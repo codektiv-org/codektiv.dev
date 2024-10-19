@@ -31,7 +31,7 @@
 	<h2 class="h2">Zkušenosti</h2>
 	<div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-8">
 		<card class="card">
-			<h3 class="card-title">Chartium</h3>
+			<h3 class="card-title" id="zkusenosti-chartium">Chartium</h3>
 			<p class="prose">
 				V dlouhodobé spolupráci se společností Soumind vyvíjíme nástroj pro analýzu diskových polí,
 				který používá společnost DHL. Hlavní feature je přehledný dashboard zobrazující různé
@@ -53,7 +53,7 @@
 		</div>
 		<div class="grid grid-cols-subgrid gap-[inherit] lg:col-span-2 items-start">
 			<card class="card">
-				<h3 class="card-title">Aplikace Veletrh iKariéra</h3>
+				<h3 class="card-title" id="zkusenosti-ikariera">Aplikace Veletrh iKariéra</h3>
 				<p class="prose">
 					V roce 2022 si nás studentská organizace IAESTE ČVUT Praha vybrala pro vývoj mobilní
 					aplikace, která sloužila jako průvodce jejich <a href="https://veletrhikariera.cz/"
@@ -66,7 +66,7 @@
 		</div>
 		<div>
 			<card class="card">
-				<h3 class="card-title">Koronainfo.cz</h3>
+				<h3 class="card-title" id="zkusenosti-koronainfo">Koronainfo.cz</h3>
 				<p class="prose">
 					Na začátku pandemie jsme s kamarády napsali stránku, která sloužila jako informační a
 					predikční web pro vývoj pandemie v České republice a na Slovensku.
